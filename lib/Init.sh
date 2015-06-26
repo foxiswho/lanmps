@@ -16,53 +16,59 @@ function Init()
     echo
     [ -f "$IN_LOG" ] && return
 	
-	Init_ReplacementSource
+	#Init_ReplacementSource
 	
 	if [ $OS_RL = 3 ]; then
 		echo "====================================="
 	elif [ $OS_RL = "ubuntu" ]; then
-		apt-get remove -y apache2 apache2-utils apache2.2-common apache2.2-bin \
-		apache2-mpm-prefork apache2-doc apache2-mpm-worker \
-		mysql-common mysql-server \
-		php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
+	    if [ $IS_DOCKER = 0 ]; then
+			apt-get remove -y apache2 apache2-utils apache2.2-common apache2.2-bin \
+			apache2-mpm-prefork apache2-doc apache2-mpm-worker \
+			mysql-common mysql-server \
+			php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
+			
+			killall apache2
 		
-		killall apache2
-		
-		dpkg -l |grep mysql 
-		dpkg -P libmysqlclient15off libmysqlclient15-dev mysql-common 
-		dpkg -l |grep apache 
-		dpkg -P apache2 apache2-doc apache2-mpm-prefork apache2-utils apache2.2-common
-		dpkg -l |grep php 
-		dpkg -P php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
-		apt-get purge `dpkg -l | grep php| awk '{print $2}'`
-		
-		apt-get install -y ntpdate
-		ntpdate -u pool.ntp.org
-		date
+			dpkg -l |grep mysql 
+			dpkg -P libmysqlclient15off libmysqlclient15-dev mysql-common 
+			dpkg -l |grep apache 
+			dpkg -P apache2 apache2-doc apache2-mpm-prefork apache2-utils apache2.2-common
+			dpkg -l |grep php 
+			dpkg -P php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
+			apt-get purge `dpkg -l | grep php| awk '{print $2}'`
+			
+			apt-get install -y ntpdate
+			ntpdate -u pool.ntp.org
+			date
+		fi
 		
 		if [ -s /etc/ld.so.conf.d/libc6-xen.conf ]; then
-		sed -i 's/hwcap 1 nosegneg/hwcap 0 nosegneg/g' /etc/ld.so.conf.d/libc6-xen.conf
+			sed -i 's/hwcap 1 nosegneg/hwcap 0 nosegneg/g' /etc/ld.so.conf.d/libc6-xen.conf
 		fi
 		
 		if [ $YUM_APT_GET_UPDATE = 1 ]; then
 			apt-get update -y
 		fi
-		apt-get autoremove -y
-		apt-get -fy install
+	    INSTALLS_STR=""
+		if [ $IS_DOCKER = 0 ]; then
+			apt-get autoremove -y
+			apt-get -fy install
+			INSTALLS_STR=" unzip bzip2 unrar p7zip mysql-client "
+		fi
 		apt-get install -y build-essential gcc g++ make cmake autoconf
 		#ln -s /bin/gcc /bin/cc
 		
 		for packages in libltdl-dev openssl \
 		libzip-dev automake re2c wget cron libc6-dev file rcconf \
 		flex vim nano bison m4 gawk less cpp binutils diffutils \
-		unzip tar bzip2 unrar p7zip libncurses5-dev libncurses5 \
+		tar  libncurses5-dev libncurses5 \
 		libtool libevent-dev libpcre3 libpcre3-dev \
 		libpcrecpp0  zlibc libssl-dev libsasl2-dev libltdl3-dev  \
 		libmcrypt-dev libmysqlclient15-dev zlib1g zlib1g-dev libbz2-1.0 libbz2-dev \
 		libglib2.0-0 libglib2.0-dev libpng3 libfreetype6 libfreetype6-dev libjpeg62 \
 		libjpeg62-dev libjpeg-dev libpng-dev libpng12-0 libpng12-dev curl libcurl3 \
 		libmhash2 libmhash-dev libpq-dev libpq5 gettext libxml2-dev  \
-		libcurl4-openssl-dev libcurl4-gnutls-dev mcrypt libcap-dev libexpat1-dev mysql-client;
+		libcurl4-openssl-dev libcurl4-gnutls-dev mcrypt libcap-dev libexpat1-dev $INSTALLS_STR;
 		
 		do 
 			apt-get install -y $packages --force-yes;
@@ -72,24 +78,31 @@ function Init()
 		done
 
 	else
-		yum install -y ntp
-		ntpdate -u pool.ntp.org
-		date
+		INSTALLS_STR=""
+	    if [ $IS_DOCKER = 0 ]; then
+			yum install -y ntp
+			ntpdate -u pool.ntp.org
+			date
+			
+			rpm -qa|grep httpd
+			rpm -e httpd
+			rpm -qa|grep mysql
+			rpm -e mysql
+			rpm -qa|grep php
+			rpm -e php
 
-		rpm -qa|grep httpd
-		rpm -e httpd
-		rpm -qa|grep mysql
-		rpm -e mysql
-		rpm -qa|grep php
-		rpm -e php
+			yum -y remove httpd*
+			yum -y remove php*
+			yum -y remove mysql-server mysql
+			yum -y remove php-mysql
 
-		yum -y remove httpd*
-		yum -y remove php*
-		yum -y remove mysql-server mysql
-		yum -y remove php-mysql
+			yum -y install yum-fastestmirror
+			yum -y remove httpd
+			
+			INSTALLS_STR=" bzip2 bzip2-devel unzip sendmail"
+		fi
 
-		yum -y install yum-fastestmirror
-		yum -y remove httpd
+		
 		if [ $YUM_APT_GET_UPDATE = 1 ]; then
 			yum update -y
 		fi
@@ -106,7 +119,7 @@ function Init()
 		freetype freetype-devel \
 		libxml2 libxml2-devel \
 		zlib zlib-devel glib2 glib2-devel \
-		bzip2 bzip2-devel libevent libevent-devel \
+		libevent libevent-devel \
 		ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel \
 		krb5 krb5-devel libidn libidn-devel \
 		openssl openssl-devel \
@@ -114,7 +127,7 @@ function Init()
 		pcre pcre-devel libtool-ltdl-devel \
 		wget \
 		libmcrypt-devel libmhash-devel \
-		gettext gettext-devel gmp-devel pspell-devel unzip libcap libcap-devel diffutils sendmail expat-devel;
+		gettext gettext-devel gmp-devel pspell-devel  libcap libcap-devel diffutils  expat-devel;
 		do 
 			yum -y install $packages;
 			echo
