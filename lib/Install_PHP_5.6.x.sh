@@ -79,7 +79,7 @@ sed -i 's:mysql.default_socket =:mysql.default_socket ='$IN_DIR'/mysql/data/mysq
 sed -i 's:pdo_mysql.default_socket.*:pdo_mysql.default_socket ='$IN_DIR'/mysql/data/mysql.sock:g' $php_ini
 sed -i 's/expose_php = On/expose_php = Off/g' $php_ini
 
-sed -i 's/[opcache]/[opcache]\nzend_extension=opcache.so/g' $php_ini
+sed -i 's#\[opcache\]#\[opcache\]\nzend_extension=opcache.so#g' $php_ini
 sed -i 's/;opcache.enable=0/opcache.enable=1/g' $php_ini
 sed -i 's/;opcache.enable_cli=0/opcache.enable_cli=1/g' $php_ini
 sed -i 's/;opcache.memory_consumption=64/opcache.memory_consumption=128/g' $php_ini

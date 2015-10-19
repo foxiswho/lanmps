@@ -28,7 +28,7 @@ coreseek(Sphinx中文版) 不支持 Ubuntu 12.x,13.x,14.x
 百度网盘下载(速度快)：[http://pan.baidu.com/s/1bnjIYKJ](http://pan.baidu.com/s/1bnjIYKJ)
 
 然后上传文件到服务器上，在当前目录下执行：
-`tar -zxvf lanmps-2.2.2.tar.gz && cd lanmps-2.2.2 && ./lanmps.sh`
+`tar -zxvf lanmps-2.2.3.tar.gz && cd lanmps-2.2.3 && ./lanmps.sh`
 
 LANMPS状态管理命令
 ------------------------------------
@@ -81,6 +81,11 @@ nginx 自动分割日志
 凌晨 0点0分00秒 开始执行
 
 ### 更新日志
+* 2015年7月16日 LANMPS V2.2.3 发布
+
+ * php 版本更新
+ * BUG修复
+ 
 * 2014年12月22日 LANMPS V1.0.3 发布
 
  * php 版本更新
