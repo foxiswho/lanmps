@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 function Install_PHP_Tools()
 {
 	local php_ini=$IN_DIR/php/php.ini
@@ -36,9 +37,18 @@ function Install_PHP_Tools()
 	    php_ext_date="no-debug-non-zts-${php_ext_date}"
 	fi
 	
-	sed -i 's#extension_dir = "./"#extension_dir = "'$IN_DIR'/php/lib/php/extensions/'$php_ext_date'/"\nextension = "memcache.so"\n#' $php_ini
-	echo 's#extension_dir = "./"#extension_dir = "'$IN_DIR'/php/lib/php/extensions/'$php_ext_date'/"\nextension = "memcache.so"\n#'
-	
+	sed -i 's#extension_dir = "./"#extension_dir = "'$IN_DIR'/php/lib/php/extensions/'$php_ext_date'/"\nextension = "memcache.so"\nextension =redis.so\n#' $php_ini
+	echo 's#extension_dir = "./"#extension_dir = "'$IN_DIR'/php/lib/php/extensions/'$php_ext_date'/"\nextension = "memcache.so"\nextension =redis.so\n#'
+
+	echo "======================== Redis ==================================="
+	wget https://github.com/nicolasff/phpredis/archive/master.zip
+	unzip master.zip
+	cd phpredis-master
+	${IN_DIR}/php/bin/phpize
+	./configure --with-php-config=${IN_DIR}/php/bin/php-config
+	make && make install
+
+	echo "================xdebug================================="
 	echo "Install xdebug php extension..."
 	cd $IN_DOWN
 	tar zxvf xdebug-${VERS['xdebug']}.tgz
@@ -63,7 +73,8 @@ function Install_PHP_Tools()
 ;xdebug.remote_handler=dbgp
 ;xdebug.idekey="PHPSTORM"  
 ' >> $php_ini
-	
+
+
 	echo "======================= phpMyAdmin install ============================"
     local IN_LOG=$LOGPATH/install_Install_PHPMyadmin.sh.lock
 	echo

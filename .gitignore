@@ -11,4 +11,5 @@
 /down/xdebug-*.tgz
 /down/sphinx-*.tar.gz
 /down/xdict_1.1.tar.gz
+/down/phpredis-*.zip
 /.idea

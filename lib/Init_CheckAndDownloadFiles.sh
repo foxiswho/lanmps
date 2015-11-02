@@ -36,14 +36,7 @@ function Init_CheckAndDownloadFiles()
 	#SoInstallationLocation "libltdl" "libltdl-${VERS['libltdl']}.tar.gz"
 	
 	#SoInstallationLocation "libmhash" "mhash-${VERS['libmhash']}.tar.gz"
-	
-	if [ "$SPHINX_ID" == "sphinx" ]; then
-		ProgramDownloadFiles "sphinx" "sphinx-${VERS['sphinx']}-release.tar.gz"
-	elif [ "$SPHINX_ID" == "sphinx-for-chinese" ]; then
-		ProgramDownloadFiles "sphinx-for-chinese" "sphinx-for-chinese-${VERS['sphinx-for-chinese']}-dev-r4311.tar.gz"
-	elif [ "$SPHINX_ID" == "sphinx-coreseek" ]; then
-		ProgramDownloadFiles "coreseek" "coreseek-${VERS['sphinx-coreseek']}-beta.tar.gz"
-	fi
+
 	echo "============================check files=================================="
 	echo
 	echo "============================ependsAndOpt ===================="

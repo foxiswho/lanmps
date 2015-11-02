@@ -77,8 +77,8 @@ echo ""
 #3 Nginx + apache + php + mysql + opcache + phpmyadmin
 #4 install all service
 echo "Select Install  ( 1 default ):
-    1 Nginx + php + mysql + sphinx + opcache + memcache + phpmyadmin
-    2 Apache + php + mysql + sphinx + opcache + memcache + phpmyadmin
+    1 Nginx + php + mysql + ElasticSearch + opcache + memcache + phpmyadmin
+    2 Apache + php + mysql + ElasticSearch + opcache + memcache + phpmyadmin
     5 don't install is now"
 sleep 0.1
 
@@ -150,31 +150,16 @@ else
 fi
 echo "Input $MYSQL_SELECT  ,MYSQL Name ${MYSQL_ID}"
 
-echo "Select sphinx :
-    1 sphinx ${VERS['sphinx']} 
-    2 sphinx-for-chinese ${VERS['sphinx-for-chinese']} (default)
-    3 sphinx-coreseek ${VERS['sphinx-coreseek']}
+echo "Select ElasticSearch :
+    1 ElasticSearch ${VERS['ElasticSearch']}
     4 no"
-read -p "Please Input : " SPHINX_SELECT
+read -p "Please Input : " ELASTIC_SEARCH
 
-if [ "$SPHINX_SELECT" = "" ]; then
-	SPHINX_SELECT="2"
+if [ "$ELASTIC_SEARCH" = "" ]; then
+	ELASTIC_SEARCH="4"
 fi
 
-if [ "$SPHINX_SELECT" == "1" ]; then
-	SPHINX_ID="sphinx"
-elif [ "$SPHINX_SELECT" == "2" ]; then
-	SPHINX_ID="sphinx-for-chinese"
-elif [ "$SPHINX_SELECT" == "3" ]; then
-	SPHINX_ID="sphinx-coreseek"
-	if [ "$OS_RL" == "ubuntu" ]; then
-		SPHINX_ID=""
-		echo " Coreseek cannot be installed on Ubuntu 14.x,13.x,12.x "
-	fi
-else
-    SPHINX_ID=""
-fi
-echo "Input $SPHINX_SELECT  ,sphinx Name ${SPHINX_ID}"
+echo "Input $ELASTIC_SEARCH  ,sphinx Name ${ELASTIC_SEARCH_ID}"
 
 #update source 
 SOURCE_ID=1

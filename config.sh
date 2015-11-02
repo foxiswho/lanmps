@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # common var
 
 IN_DOWN=${IN_PWD}/down
@@ -123,3 +124,11 @@ VERS['apr']="1.5.1"
 #http://mirrors.axint.net/apache/apr/apr-util-1.5.4.tar.gz
 DUS['apr-util']="http://download.lanmps.com/Apache/apr-util-1.5.4.tar.gz"
 VERS['apr-util']="1.5.4"
+
+#http://download.redis.io/redis-stable.tar.gz
+DUS['redis']="http://download.redis.io/releases/redis-3.0.5.tar.gz"
+VERS['redis']="3.0.5"
+
+#http://download.redis.io/redis-stable.tar.gz
+DUS['ElasticSearch']="http://download.redis.io/releases/redis-3.0.5.tar.gz"
+VERS['ElasticSearch']="3.0.5"
