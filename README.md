@@ -1,7 +1,7 @@
 LANMPS 一键安装包,php绿色环境套件包
 =====================================
 
-Linux+Nginx+Mysql+PHP+Sphinx ( phpmyadmin+opencache+xdebug )环境套件包,绿色PHP套件，一键自动安装
+Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+opencache+xdebug+Redis)环境套件包,绿色PHP套件，一键自动安装
 
 系统需求
 -------------------------------------
@@ -10,7 +10,7 @@ Linux+Nginx+Mysql+PHP+Sphinx ( phpmyadmin+opencache+xdebug )环境套件包,绿�
 * 内存：大于等于256M内存 
 * 安装时需要联网
 
-LANMPS 一键安装包V0.1.0 ：Linux+Nginx+Mysql+PHP+Sphinx ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
+LANMPS 一键安装包V0.1.0 ：Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+opencache+xdebug+Redis)套件包,绿色PHP套件，一键自动安装。
 > 
 已在 CentOS6.x，Ubuntu14.04，Ubuntu14.10 中安装成功！
 
