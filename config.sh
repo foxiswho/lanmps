@@ -43,20 +43,20 @@ VERS['mysql']="5.6.21"
 
 #http://mirrors.hustunique.com/mariadb/mariadb-10.0.17/source/mariadb-10.0.17.tar.gz
 #http://mirrors.opencas.cn/mariadb/mariadb-10.0.20/source/mariadb-10.0.20.tar.gz
-DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.0.20.tar.gz"
-VERS['MariaDB']="10.0.20"
+DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.8.tar.gz"
+VERS['MariaDB']="10.1.8"
 
 #http://cn2.php.net/distributions/php-5.6.10.tar.gz
-DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.10.tar.gz"
-VERS['php5.6.x']="5.6.10"
+DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.15.tar.gz"
+VERS['php5.6.x']="5.6.15"
 
 #http://cn2.php.net/distributions/php-5.5.26.tar.gz
-DUS['php5.5.x']="http://download.lanmps.com/php/php-5.5.26.tar.gz"
-VERS['php5.5.x']="5.5.26"
+DUS['php5.5.x']="http://download.lanmps.com/php/php-5.5.30.tar.gz"
+VERS['php5.5.x']="5.5.30"
 
 #http://cn2.php.net/distributions/php-5.4.42.tar.gz
-DUS['php5.4.x']="http://download.lanmps.com/php/php-5.4.42.tar.gz"
-VERS['php5.4.x']="5.4.42"
+DUS['php5.4.x']="http://download.lanmps.com/php/php-5.4.45.tar.gz"
+VERS['php5.4.x']="5.4.45"
 
 #http://cn2.php.net/distributions/php-5.3.29.tar.gz
 DUS['php5.3.x']="http://download.lanmps.com/php/php-5.3.29.tar.gz"
@@ -64,8 +64,8 @@ VERS['php5.3.x']="5.3.29"
 IN_DIR_SETS['php5.3.x']=${IN_DIR}/php
 
 #http://jaist.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.4.10/phpMyAdmin-4.4.10-all-languages.tar.gz
-DUS['phpMyAdmin']="http://download.lanmps.com/phpMyAdmin/phpMyAdmin-4.4.10-all-languages.tar.gz"
-VERS['phpMyAdmin']="4.4.10"
+DUS['phpMyAdmin']="http://download.lanmps.com/phpMyAdmin/phpMyAdmin-4.5.1-all-languages.tar.gz"
+VERS['phpMyAdmin']="4.5.1"
 
 DUS['libpcre']="http://download.lanmps.com/basic/pcre-8.33.tar.gz"
 VERS['libpcre']="8.33"

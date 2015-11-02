@@ -16,7 +16,7 @@ LANMPS 一键安装包V0.1.0 ：Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+openca
 
 注意
 ------------------------------------
-coreseek(Sphinx中文版) 不支持 Ubuntu 12.x,13.x,14.x
+
 
 安装
 -----------------------------------
@@ -81,6 +81,12 @@ nginx 自动分割日志
 凌晨 0点0分00秒 开始执行
 
 ### 更新日志
+* 2015年11月12日 LANMPS V3.0.0
+ * php 版本更新
+ * MariaDB 版本更新
+ * ElasticSearch 搜索 并删除 Sphinx 搜索
+ * 增加 redis 支持
+ 
 * 2015年7月16日 LANMPS V2.2.3 发布
 
  * php 版本更新

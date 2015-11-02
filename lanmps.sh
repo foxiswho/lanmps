@@ -30,8 +30,6 @@ Install_Memcached;
 
 Install_Mysql;
 
-Install_Sphinx;
-
  }  2>&1 | tee -a "${LOGPATH}/3.Install.log"
 
 Starup 2>&1 | tee -a "${LOGPATH}/9.Starup-install.log"
