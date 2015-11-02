@@ -103,15 +103,6 @@ VERS['mcrypt']="2.6.8"
 DUS['xdebug']="http://xdebug.org/files/xdebug-2.3.3.tgz"
 VERS['xdebug']="2.3.3"
 
-#http://sphinxsearch.com/files/sphinx-2.2.9-release.tar.gz
-DUS['sphinx']="http://sphinxsearch.com/files/sphinx-2.2.9-release.tar.gz"
-VERS['sphinx']="2.2.9"
-#http://www.sphinx-search.com/downloads/sphinx-for-chinese-2.2.1-dev-r4311.tar.gz
-DUS['sphinx-for-chinese']="http://download.lanmps.com/sphinx/sphinx-for-chinese-2.2.1-dev-r4311.tar.gz"
-VERS['sphinx-for-chinese']="2.2.1"
-#http://www.coreseek.cn/uploads/csft/4.0/coreseek-4.1-beta.tar.gz
-DUS['sphinx-coreseek']="http://download.lanmps.com/sphinx/coreseek-4.1-beta.tar.gz"
-VERS['sphinx-coreseek']="4.1"
 
 #http://mirrors.hust.edu.cn/apache/httpd/httpd-2.4.12.tar.gz
 DUS['apache']="http://download.lanmps.com/Apache/httpd-2.4.12.tar.gz"

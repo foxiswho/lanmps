@@ -41,7 +41,6 @@ IP=${IP// /}
 . $IN_PWD/lib/Install_PHP.sh
 . $IN_PWD/lib/Install_PHP_Tools.sh
 . $IN_PWD/lib/Install_Memcached.sh
-. $IN_PWD/lib/Install_Sphinx.sh
 . $IN_PWD/lib/Starup.sh
 clear
 t_median=32
@@ -159,7 +158,7 @@ if [ "$ELASTIC_SEARCH" = "" ]; then
 	ELASTIC_SEARCH="4"
 fi
 
-echo "Input $ELASTIC_SEARCH  ,sphinx Name ${ELASTIC_SEARCH_ID}"
+echo "Input $ELASTIC_SEARCH  ,Search Name ${ELASTIC_SEARCH_ID}"
 
 #update source 
 SOURCE_ID=1
