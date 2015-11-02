@@ -41,8 +41,9 @@ function Install_PHP_Tools()
 	echo 's#extension_dir = "./"#extension_dir = "'$IN_DIR'/php/lib/php/extensions/'$php_ext_date'/"\nextension = "memcache.so"\nextension =redis.so\n#'
 
 	echo "======================== Redis ==================================="
-	wget https://github.com/nicolasff/phpredis/archive/master.zip
-	unzip master.zip
+	wget https://github.com/nicolasff/phpredis/archive/master.zip -O phpredis-master.zip
+	cd $IN_DOWN
+	unzip phpredis-master.zip
 	cd phpredis-master
 	${IN_DIR}/php/bin/phpize
 	./configure --with-php-config=${IN_DIR}/php/bin/php-config

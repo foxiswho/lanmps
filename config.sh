@@ -63,7 +63,7 @@ DUS['php5.3.x']="http://download.lanmps.com/php/php-5.3.29.tar.gz"
 VERS['php5.3.x']="5.3.29"
 IN_DIR_SETS['php5.3.x']=${IN_DIR}/php
 
-#http://jaist.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.4.10/phpMyAdmin-4.4.10-all-languages.tar.gz
+#https://files.phpmyadmin.net/phpMyAdmin/4.5.1/phpMyAdmin-4.5.1-all-languages.tar.gz
 DUS['phpMyAdmin']="http://download.lanmps.com/phpMyAdmin/phpMyAdmin-4.5.1-all-languages.tar.gz"
 VERS['phpMyAdmin']="4.5.1"
 
