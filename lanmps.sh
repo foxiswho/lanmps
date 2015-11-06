@@ -30,6 +30,10 @@ Install_Memcached;
 
 Install_Mysql;
 
+if [ ${ELASTIC_SEARCH_ID} == "1" ]; then
+    Install_ElasticSearch;
+fi
+
  }  2>&1 | tee -a "${LOGPATH}/3.Install.log"
 
 Starup 2>&1 | tee -a "${LOGPATH}/9.Starup-install.log"

@@ -41,6 +41,7 @@ IP=${IP// /}
 . $IN_PWD/lib/Install_PHP.sh
 . $IN_PWD/lib/Install_PHP_Tools.sh
 . $IN_PWD/lib/Install_Memcached.sh
+. $IN_PWD/lib/Install_ElasticSearch.sh
 . $IN_PWD/lib/Starup.sh
 clear
 t_median=32
