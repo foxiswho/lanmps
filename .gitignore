@@ -12,4 +12,5 @@
 /down/sphinx-*.tar.gz
 /down/xdict_1.1.tar.gz
 /down/phpredis-*.zip
+/down/elasticsearch-*.tar.gz
 /.idea
