@@ -9,8 +9,12 @@ function Install_ElasticSearch()
 
     cd $IN_DOWN
     mv elasticsearch-${VERS['ElasticSearch']} $IN_DIR/elasticsearch
-    wget https://github.com/elastic/elasticsearch-servicewrapper/archive/master.zip -O master.zip
-    unzip master.zip
+    cd $IN_DOWN
+	es=$IN_DOWN/elasticsearch-servicewrapper-master.zip
+	if [ ! -f "$es" ]; then
+	    wget https://github.com/elastic/elasticsearch-servicewrapper/archive/master.zip -O elasticsearch-servicewrapper-master.zip
+	fi
+    unzip elasticsearch-servicewrapper-master.zip
     cd elasticsearch-servicewrapper-master
     mv service $IN_DIR/elasticsearch/bin/
 
