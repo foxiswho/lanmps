@@ -120,6 +120,6 @@ VERS['apr-util']="1.5.4"
 DUS['redis']="http://download.redis.io/releases/redis-3.0.5.tar.gz"
 VERS['redis']="3.0.5"
 
-#http://download.redis.io/redis-stable.tar.gz
+#https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.0.0/elasticsearch-2.0.0.tar.gz
 DUS['ElasticSearch']="http://download.lanmps.com/elasticsearch/elasticsearch-2.0.0.tar.gz"
 VERS['ElasticSearch']="2.0.0"
