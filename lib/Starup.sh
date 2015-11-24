@@ -18,9 +18,11 @@ function Starup()
 				chkconfig --add httpd
 				chkconfig --level 345 httpd on
 			fi
-			chkconfig --add mysql
-			chkconfig --level 345 mysql on
-			
+			if [[ "${MYSQL_SELECT}"x != "0"x  ]]; then
+                chkconfig --add mysql
+                chkconfig --level 345 mysql on
+            fi
+
 			chkconfig --add memcached
 			chkconfig --level 345 memcached on
 		else
@@ -30,25 +32,31 @@ function Starup()
 				update-rc.d -f php-fpm defaults
 				update-rc.d -f nginx defaults
 			fi
-			update-rc.d -f mysql defaults
+			if [[ "${MYSQL_SELECT}"x != "0"x  ]]; then
+			    update-rc.d -f mysql defaults
+			fi
 			update-rc.d -f memcached defaults
 		fi
 	else
 		file_cp $IN_PWD/conf/service.nginx.service "${systemd_path}/nginx.service"
 		file_cp $IN_PWD/conf/service.php-fpm.service "${systemd_path}/php-fpm.service"
-		file_cp $IN_PWD/conf/service.mysql.service "${systemd_path}/mysql.service"
 		file_cp $IN_PWD/conf/service.memcached.service "${systemd_path}/memcached.service"
 		
 		systemctl enable nginx.service
 		systemctl enable php-fpm.service
 		systemctl enable memcached.service
-		systemctl enable mysql.service
+
 		
 		
 		systemctl start nginx.service
 		systemctl start php-fpm.service
-		systemctl start mysql.service
 		systemctl start memcached.service
+
+		if [[ "${MYSQL_SELECT}"x != "0"x  ]]; then
+		    file_cp $IN_PWD/conf/service.mysql.service "${systemd_path}/mysql.service"
+		    systemctl enable mysql.service
+		    systemctl start mysql.service
+		fi
 	fi
 	
 	echo "===========================add nginx and php-fpm on startup completed===================="
@@ -67,8 +75,6 @@ function Starup()
 	
 	echo "Starting LANMPS..."
 	if [ ! -d "$systemd_path" ]; then
-		$IN_DIR/action/mysql start
-		
 		if [ $SERVER == "nginx" ]; then
 			$IN_DIR/action/php-fpm start
 			$IN_DIR/action/nginx start
@@ -77,11 +83,18 @@ function Starup()
 		fi
 		
 		$IN_DIR/action/memcached start
+
+		if [[ "${MYSQL_SELECT}"x != "0"x  ]]; then
+		    $IN_DIR/action/mysql start
+		fi
 	else
 		systemctl start nginx.service
 		systemctl start php-fpm.service
-		systemctl start mysql.service
 		systemctl start memcached.service
+
+		if [[ "${MYSQL_SELECT}"x != "0"x  ]]; then
+		    systemctl start mysql.service
+		fi
 	fi
 	#add 80 port to iptables
 	if [ -s /sbin/iptables ]; then
@@ -133,15 +146,17 @@ function CheckInstall()
 			echo "Error: $IN_DIR/php not found!!!PHP install failed."
 		fi
 	fi
-	
-	if [ -s "$IN_DIR/mysql" ] && [ -s "$IN_DIR/mysql/bin/mysql" ]; then
-		  echo "MySQL: OK"
-		  ismysql="ok"
-		else
-		  echo "Error: $IN_DIR/mysql not found!!!MySQL install failed."
-		fi
-	
-	if [ "$isnginx" = "ok" ] && [ "$ismysql" = "ok" ] && [ "$isphp" = "ok" ]; then
+
+	if [[ "${MYSQL_SELECT}"x != "0"x  ]]; then
+	    if [ -s "$IN_DIR/mysql" ] && [ -s "$IN_DIR/mysql/bin/mysql" ]; then
+            echo "MySQL: OK"
+            ismysql="ok"
+        else
+            echo "Error: $IN_DIR/mysql not found!!!MySQL install failed."
+        fi
+	fi
+
+	if [ "$isnginx" = "ok" ] && [ "$isphp" = "ok" ]; then
 		echo "========================================================================="
 		echo "LANMPS V2.2.1 for CentOS/Ubuntu Linux Written by Licess "
 		echo "========================================================================="
@@ -149,14 +164,18 @@ function CheckInstall()
 		echo "For more information please visit http://www.lanmps.com"
 		echo ""
 		echo "lanmps status manage: $IN_DIR/lanmps {start|stop|reload|restart|kill|status}"
-		echo "default mysql root password:$MysqlPassWord"
+		if [ "$ismysql" = "ok" ]; then
+		    echo "default mysql root password:$MysqlPassWord"
+		fi
 		echo "Prober : http://$IP/_tz.php"
 		echo "phpinfo : http://$IP/_phpinfo.php"
 		echo "phpMyAdmin : http://$IP/_phpmyadmin/"
 		echo "Add VirtualHost : $IN_DIR/vhost.sh"
 		echo ""
 		echo "The path of some dirs:"
-		echo "mysql dir:   $IN_DIR/$MYSQL_INITD"
+		if [ "$ismysql" = "ok" ]; then
+		    echo "mysql dir:   $IN_DIR/$MYSQL_INITD"
+		fi
 		echo "php dir:     $IN_DIR/php"
 		if [ $SERVER == "nginx" ]; then
 			echo "nginx dir:   $IN_DIR/nginx"

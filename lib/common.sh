@@ -70,8 +70,8 @@ uname -a
 echo "========================================================================="
 unset t_median x1
 
-if [[ "$START"x != "no"x  ]]; then
-
+if [[ "$NO_INPUT"x != "YES"x  ]]; then
+=======================================
 echo ""
 #    1 Apache + php + mysql + opcache + phpmyadmin
 #3 Nginx + apache + php + mysql + opcache + phpmyadmin
@@ -137,6 +137,7 @@ fi
 echo "Input $PHP_VER_ID  ,PHP_VER=${PHP_VER}"
 
 echo "Select mysql :
+    0 NO
     1 MySql 
     2 MariaDB (default)"
 read -p "Please Input 1,2: " MYSQL_SELECT
@@ -175,8 +176,6 @@ else
 fi
 #echo "Input $SOURCE_ID"
 
-fi
-
 get_char()
 	{
 	SAVEDSTTY=`stty -g`
@@ -189,6 +188,12 @@ get_char()
 	}
 echo "Press any key to start..."
 char=`get_char`;
+
+
+=================================================================
+fi
+
+
 
 chmod 777 $IN_PWD/lib/*
 chmod 777 $IN_PWD/down/*
