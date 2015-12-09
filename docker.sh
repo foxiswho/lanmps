@@ -5,10 +5,15 @@ export PATH
 if [ $UID != 0 ]; then echo "Error: You must be root to run the install script, please use root to install lanmps";exit;fi
 # DOCKER
 NO_INPUT="YES"
+IS_DOCKER=1
 SERVER_ID=1
-PHP_VER_ID=1
+SERVER="nginx"
 MYSQL_SELECT=0
-ELASTIC_SEARCH_ID=1
+REDIS_SELECT=0;
+ELASTIC_SEARCH_ID=0
+PHP_VER=${VERS['php5.6.x']}
+PHP_KEY="php5.6.x"
+PHP_VER_ID=1
 
 IN_PWD=$(pwd)
 . lib/common.sh

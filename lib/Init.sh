@@ -186,30 +186,20 @@ function Init_SetDirectoryAndUser
 
 function Init_ReplacementSource()
 {
-#lucid is username ;http://liuzhigong.blog.163.com/blog/static/17827237520121113103236820/
 	echo
 	echo "============= ReplacementSource        ===="
 	if [ $SOURCE_ID = 2 ]; then
-		echo "cp /etc/apt/sources.list /etc/apt/sources.list.old"
-		
-		cp /etc/apt/sources.list /etc/apt/sources.list.old
-		cat /dev/null > /etc/apt/sources.list
-		cat >>/etc/apt/sources.list<<eof
-deb http://mirrors.163.com/ubuntu/ lucid main universe restricted multiverse
-deb-src http://mirrors.163.com/ubuntu/ lucid main universe restricted multiverse
-deb http://mirrors.163.com/ubuntu/ lucid-security universe main multiverse restricted
-deb-src http://mirrors.163.com/ubuntu/ lucid-security universe main multiverse restricted
-deb http://mirrors.163.com/ubuntu/ lucid-updates universe main multiverse restricted
-deb http://mirrors.163.com/ubuntu/ lucid-proposed universe main multiverse restricted
-deb-src http://mirrors.163.com/ubuntu/ lucid-proposed universe main multiverse restricted
-deb http://mirrors.163.com/ubuntu/ lucid-backports universe main multiverse restricted
-deb-src http://mirrors.163.com/ubuntu/ lucid-backports universe main multiverse restricted
-deb-src http://mirrors.163.com/ubuntu/ lucid-updates universe main multiverse restricted
-eof
-		rm /var/lib/apt/lists/lock;
-		apt-get update;
-	else
-		echo "Ubuntu default Update source ( default )"
+	    if [ $OS_RL = "ubuntu" ]; then
+	        sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/mirrors\.163\.com\/ubuntu\//g' /etc/apt/sources.list
+			rm /var/lib/apt/lists/lock;
+		    apt-get update;
+		else
+		    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+		    cd /etc/yum.repos.d/ 
+			wget http://mirrors.163.com/.help/CentOS7-Base-163.repo -O CentOS-Base.repo
+			yum clean all 
+			yum makecache
+		fi
 	fi
 	echo "============= Finish ReplacementSource        ===="
 }
