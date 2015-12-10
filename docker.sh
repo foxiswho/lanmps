@@ -7,6 +7,13 @@ if [ $UID != 0 ]; then echo "Error: You must be root to run the install script, 
 NO_INPUT="YES"
 IS_DOCKER=1
 
+IN_PWD=$(pwd)
+. lib/common.sh
+
+# DOCKER
+NO_INPUT="YES"
+IS_DOCKER=1
+
 SERVER_ID=1
 SERVER="nginx"
 
@@ -21,11 +28,6 @@ PHP_KEY="php5.6.x"
 PHP_VER_ID=1
 
 SOURCE_ID=1
-
-
-
-IN_PWD=$(pwd)
-. lib/common.sh
 
 #更新
 YUM_APT_GET_UPDATE=0
