@@ -154,13 +154,13 @@ echo "Input $MYSQL_SELECT  ,MYSQL Name ${MYSQL_ID}"
 echo "Select ElasticSearch :
     1 ElasticSearch ${VERS['ElasticSearch']}
     4 no"
-read -p "Please Input : " ELASTIC_SEARCH
+read -p "Please Input : " ELASTIC_SEARCH_ID
 
-if [ "$ELASTIC_SEARCH" = "" ]; then
-	ELASTIC_SEARCH="4"
+if [ "$ELASTIC_SEARCH_ID" = "" ]; then
+	ELASTIC_SEARCH_ID="4"
 fi
 
-echo "Input $ELASTIC_SEARCH  ,Search Name ${ELASTIC_SEARCH_ID}"
+echo "Input $ELASTIC_SEARCH_ID  ,Search Name ElasticSearch"
 
 #update source 
 SOURCE_ID=1
