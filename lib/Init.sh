@@ -192,7 +192,7 @@ function Init_ReplacementSource()
 	    if [ $OS_RL = "ubuntu" ]; then
 	        sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/mirrors\.163\.com\/ubuntu\//g' /etc/apt/sources.list
 			rm /var/lib/apt/lists/lock;
-		    apt-get update;
+		    apt-get update
 		else
 		    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
 		    cd /etc/yum.repos.d/ 

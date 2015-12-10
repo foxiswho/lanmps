@@ -22,8 +22,15 @@ PHP_VER_ID=1
 
 SOURCE_ID=1
 
+
+
 IN_PWD=$(pwd)
 . lib/common.sh
+
+#更新
+YUM_APT_GET_UPDATE=0
+#不检测
+IS_EXISTS_REMOVE=2
 
 Init_SetDirectoryAndUser 2>&1 | tee -a "${LOGPATH}/1.Init_SetDirectoryAndUser-install.log"
 
