@@ -79,6 +79,7 @@ function Install_PHP_Tools()
 ' >> $php_ini
 
 
+    if [ ${IS_DOCKER} != "1" ]; then
 	echo "======================= phpMyAdmin install ============================"
     local IN_LOG=$LOGPATH/install_Install_PHPMyadmin.sh.lock
 	echo
@@ -99,6 +100,7 @@ function Install_PHP_Tools()
 	
 	touch $IN_LOG
 	echo "============================phpMyAdmin install completed======================"
+	fi
 	
 	echo "Create PHP Info Tool..."
 	#TOOLS

@@ -20,13 +20,6 @@ function Install_ElasticSearch()
 
     #chmod +x $IN_DIR/elasticsearch/bin/plugin
 
-    if [ $OS_RL = "centos" ]; then
-        yum install python-setuptools -y
-        easy_install supervisor
-        echo_supervisord_conf > /etc/supervisord.conf
-    else
-        apt-get install supervisor -y
-    fi
 
 	touch $IN_LOG
 	echo "=========================== install ElasticSearch ======================"

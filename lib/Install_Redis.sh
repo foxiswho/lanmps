@@ -27,6 +27,5 @@ function Install_Redis()
 	sed -i "s:/etc/redis/${REDISPORT}.conf:${IN_DIR}/redis/redis.conf:g" $IN_DIR/action/redis
 	sed -i "s:/var/run/redis_${REDISPORT}.pid:/var/run/redis.pid:g" $IN_DIR/action/redis
 
-
 	echo "=========================== install Redis  END ======================"
 }
