@@ -46,9 +46,9 @@ VERS['mysql']="5.6.21"
 DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.8.tar.gz"
 VERS['MariaDB']="10.1.8"
 
-#http://cn2.php.net/distributions/php-5.6.10.tar.gz
-DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.15.tar.gz"
-VERS['php5.6.x']="5.6.15"
+#http://cn2.php.net/distributions/php-5.6.16.tar.gz
+DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.16.tar.gz"
+VERS['php5.6.x']="5.6.16"
 
 #http://cn2.php.net/distributions/php-5.5.26.tar.gz
 DUS['php5.5.x']="http://download.lanmps.com/php/php-5.5.30.tar.gz"
