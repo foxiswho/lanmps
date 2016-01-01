@@ -31,15 +31,14 @@ function Install_Memcached()
 	else
 		cp $IN_PWD/conf/action.memcached-ubuntu $cnf
 	fi
-	if [ ! $IN_DIR = "/www/lanmps" ]; then
-		sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
-	fi
-	chmod 755 $cnf
+
 	ln -s $cnf $IN_DIR/init.d/memcached
 	cp $IN_PWD/conf/conf.memcached.conf $IN_DIR/etc/memcached.conf
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
+	    sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
 		sed -i "s:/www/lanmps:$IN_DIR:g" $IN_DIR/etc/memcached.conf
 	fi
+	chmod 755 $cnf
 
 	echo "Copy Memcached PHP Test file..."
 	cp $IN_PWD/conf/php.memcached.php $IN_WEB_DIR/default/memcached.php

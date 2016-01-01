@@ -1,7 +1,7 @@
 LANMPS 一键安装包,php绿色环境套件包
 =====================================
 
-Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+opencache+xdebug+Redis)环境套件包,绿色PHP套件，一键自动安装
+Linux+Nginx+Mysql+PHP+Search(ElasticSearch) ( phpmyadmin+opencache+xdebug+Redis)环境套件包,绿色PHP套件，一键自动安装
 
 系统需求
 -------------------------------------
@@ -10,9 +10,9 @@ Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+opencache+xdebug+Redis)环境套件包
 * 内存：大于等于256M内存 
 * 安装时需要联网
 
-LANMPS 一键安装包V0.1.0 ：Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+opencache+xdebug+Redis)套件包,绿色PHP套件，一键自动安装。
+LANMPS 一键安装包V3.1.0 ：Linux+Nginx+Mysql+PHP+Search(ElasticSearch) ( phpmyadmin+opencache+xdebug+Redis)套件包,绿色PHP套件，一键自动安装。
 > 
-已在 CentOS6.x，Ubuntu14.04，Ubuntu14.10 中安装成功！
+已在 CentOS6.x，CentOS7.x，Ubuntu14.04，Ubuntu14.10，Ubuntu15.x 中安装成功！
 
 注意
 ------------------------------------
@@ -24,11 +24,17 @@ LANMPS 一键安装包V0.1.0 ：Linux+Nginx+Mysql+PHP+Search ( phpmyadmin+openca
 请以  root  用户执行命令
 
 安装包大小：197MB（包含相关环境所需文件）
-### 方法二：
+# 方法一：
 百度网盘下载(速度快)：[http://pan.baidu.com/s/1bnjIYKJ](http://pan.baidu.com/s/1bnjIYKJ)
 
 然后上传文件到服务器上，在当前目录下执行：
-`tar -zxvf lanmps-2.2.3.tar.gz && cd lanmps-2.2.3 && ./lanmps.sh`
+`tar -zxvf lanmps-3.1.0.tar.gz && cd lanmps-3.1.0 && ./lanmps.sh`
+# 方法二：
+docker 方式 https://hub.docker.com/r/foxiswho/lanmps-docker/
+>
+docker pull foxiswho/lanmps-docker:latest
+
+
 
 LANMPS状态管理命令
 ------------------------------------
@@ -81,6 +87,11 @@ nginx 自动分割日志
 凌晨 0点0分00秒 开始执行
 
 ### 更新日志
+* 2016年1月1日 LANMPS V3.1.0
+ * php 版本更新
+ * MariaDB 版本更新
+ * 支持 docker  docker地址 ：https://hub.docker.com/r/foxiswho/lanmps-docker/
+ 
 * 2015年11月12日 LANMPS V3.0.0
  * php 版本更新
  * MariaDB 版本更新

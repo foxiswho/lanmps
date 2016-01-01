@@ -60,15 +60,11 @@ AddType application/x-httpd-php .php
 	
 	cd $IN_PWD
 	file_cp conf.apache.default.conf $conf_default
-	
-	if [ ! $IN_WEB_DIR = "/www/wwwroot" ]; then
-		sed -i "s:/www/wwwroot:$IN_WEB_DIR:g" $conf_default
-	fi
-	if [ ! $IN_WEB_LOG_DIR = "/www/wwwLogs" ]; then
-		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $conf_default
-	fi
+
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
 		sed -i "s:/www/lanmps:$IN_DIR:g" $conf_default
+		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $conf_default
+		sed -i "s:/www/wwwroot:$IN_WEB_DIR:g" $conf_default
 	fi
 	mkdir -p $IN_WEB_LOG_DIR/logs/default
 	
@@ -88,11 +84,7 @@ AddType application/x-httpd-php .php
 	file_cp sh.vhost.sh $IN_DIR/vhost.sh
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
 		sed -i "s:/www/lanmps:$IN_DIR:g" $IN_DIR/vhost.sh
-	fi
-	if [ ! $IN_WEB_DIR = "/www/wwwroot" ]; then
 		sed -i "s:/www/wwwroot:$IN_WEB_DIR:g" $IN_DIR/vhost.sh
-	fi
-	if [ ! $IN_WEB_LOG_DIR = "/www/wwwLogs" ]; then
 		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $IN_DIR/vhost.sh
 	fi
 	chmod +x $IN_DIR/vhost.sh

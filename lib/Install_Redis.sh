@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 function Install_Redis()
 {
 	echo "=========================== install Redis START ======================"

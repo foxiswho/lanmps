@@ -31,26 +31,23 @@
 	local cnf=$IN_DIR/mysql/my.cnf
 	cp $IN_PWD/conf/conf.mysql.conf $cnf
 	ln -s $cnf $IN_DIR/etc/my.cnf
-	if [ ! $IN_DIR = "/www/lanmps" ]; then
-		sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
-	fi
-	
-	if [ $INNODB_ID = 1 ]; then
-		sed -i 's:#loose-skip-innodb:loose-skip-innodb:g' $cnf
-	fi
 
-	$IN_DIR/mysql/scripts/mysql_install_db --defaults-file=$cnf --basedir=$IN_DIR/mysql --datadir=$IN_DIR/mysql/data --user=mysql
-	chown -R mysql $IN_DIR/mysql/data
-	chgrp -R mysql $IN_DIR/mysql/.
-	
 	cp support-files/mysql.server $IN_DIR/action/mysql
 	chmod 755 $IN_DIR/action/mysql
 	if [ $ETC_INIT_D_LN = 1 ]; then
 		ln -s $IN_DIR/action/mysql $IN_DIR/init.d/mysql
 	fi
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
+	    sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
+	    sed -i 's:#loose-skip-innodb:loose-skip-innodb:g' $cnf
 		sed -i "s:/www/lanmps:$IN_DIR:g" $IN_DIR/action/mysql
 	fi
+
+	$IN_DIR/mysql/scripts/mysql_install_db --defaults-file=$cnf --basedir=$IN_DIR/mysql --datadir=$IN_DIR/mysql/data --user=mysql
+	chown -R mysql $IN_DIR/mysql/data
+	chgrp -R mysql $IN_DIR/mysql/.
+	
+
 
 	cat > /etc/ld.so.conf.d/mysql.conf<<EOF
 ${IN_DIR}/mysql/lib

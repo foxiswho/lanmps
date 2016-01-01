@@ -33,26 +33,25 @@
 	local cnf=$TMP_TTT_MARIADB_PATH/my.cnf
 	cp $IN_PWD/conf/conf.mariadb.conf $cnf
 	ln -s $cnf $IN_DIR/etc/my.cnf
-	if [ ! $IN_DIR = "/www/lanmps" ]; then
-		sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
-	fi
-	
 	if [ $INNODB_ID = 1 ]; then
 		sed -i 's:#loose-skip-innodb:loose-skip-innodb:g' $cnf
 	fi
-
-	$TMP_TTT_MARIADB_PATH/scripts/mysql_install_db --defaults-file=$cnf --basedir=$TMP_TTT_MARIADB_PATH --datadir=$TMP_TTT_MARIADB_PATH/data --user=mysql
-	chown -R mysql $TMP_TTT_MARIADB_PATH/data
-	chgrp -R mysql $TMP_TTT_MARIADB_PATH/.
-	
 	cp support-files/mysql.server $IN_DIR/action/mysql
 	chmod 755 $IN_DIR/action/mysql
 	if [ $ETC_INIT_D_LN = 1 ]; then
 		ln -s $IN_DIR/action/mysql $IN_DIR/init.d/mysql
 	fi
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
+	    sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
+	    sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $cnf
 		sed -i "s:/www/lanmps:$IN_DIR:g" $IN_DIR/action/mysql
 	fi
+
+	$TMP_TTT_MARIADB_PATH/scripts/mysql_install_db --defaults-file=$cnf --basedir=$TMP_TTT_MARIADB_PATH --datadir=$TMP_TTT_MARIADB_PATH/data --user=mysql
+	chown -R mysql $TMP_TTT_MARIADB_PATH/data
+	chgrp -R mysql $TMP_TTT_MARIADB_PATH/.
+	
+
 
 	cat > /etc/ld.so.conf.d/mysql.conf<<EOF
 ${TMP_TTT_MARIADB_PATH}/lib

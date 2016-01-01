@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 function Install_PHP_Tools()
 {
 	local php_ini=$IN_DIR/php/php.ini

@@ -1,11 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # common var
-
+#安装文件 源码目录
 IN_DOWN=${IN_PWD}/down
+#安装文件日志目录
 LOGPATH=${IN_PWD}/logs
-IN_DIR="/www/lanmps"
-IN_WEB_DIR="/www/wwwroot"
-IN_WEB_LOG_DIR="/www/wwwLogs"
+#根目录/安装位置根目录
+IN_ROOT=/www
+IN_DIR=${IN_ROOT}/lanmps
+IN_WEB_DIR=${IN_ROOT}/wwwroot
+IN_WEB_LOG_DIR=${IN_ROOT}/wwwLogs
 SERVER="nginx"
 RE_INS=0
 SOFT_DOWN=1

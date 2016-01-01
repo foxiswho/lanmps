@@ -34,11 +34,7 @@ function Install_Nginx {
 
 	cd $IN_PWD
 	file_cp conf.nginx.conf $conf
-	if [ ! $IN_DIR = "/www/lanmps" ]; then
-		sed -i "s:/www/lanmps:$IN_DIR:g" $conf
-		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $conf
-	fi
-	
+
 	cd $IN_PWD
 	#rm -f $IN_DIR/nginx/conf/fastcgi.conf
 	file_cp conf.fastcgi.conf $IN_DIR/nginx/conf/fastcgi.conf
@@ -50,33 +46,22 @@ function Install_Nginx {
 	ln -s $IN_DIR/nginx/conf/vhost $IN_DIR/etc/
 	
 	file_cp conf.default.conf $conf_default
-	
-	if [ ! $IN_WEB_DIR = "/www/wwwroot" ]; then
-		sed -i "s:/www/wwwroot:$IN_WEB_DIR:g" $conf_default
-	fi
-	if [ ! $IN_WEB_LOG_DIR = "/www/wwwLogs" ]; then
-		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $conf_default
-	fi
-	
+	file_cp sh.vhost.sh $IN_DIR/vhost.sh
 	file_cp action.nginx $IN_DIR/action/nginx
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
+	    sed -i "s:/www/lanmps:$IN_DIR:g" $conf
+		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $conf
+
+		sed -i "s:/www/wwwroot:$IN_WEB_DIR:g" $conf_default
+		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $conf_default
 		sed -i 's:/www/lanmps:'$IN_DIR':g' $IN_DIR/action/nginx
-	fi
-	chmod +x $IN_DIR/action/nginx
-	if [ $ETC_INIT_D_LN = 1 ]; then
-		ln -s $IN_DIR/action/nginx $IN_DIR/init.d/nginx
-	fi
-	
-	file_cp sh.vhost.sh $IN_DIR/vhost.sh
-	if [ ! $IN_DIR = "/www/lanmps" ]; then
+
 		sed -i "s:/www/lanmps:$IN_DIR:g" $IN_DIR/vhost.sh
-	fi
-	if [ ! $IN_WEB_DIR = "/www/wwwroot" ]; then
 		sed -i "s:/www/wwwroot:$IN_WEB_DIR:g" $IN_DIR/vhost.sh
-	fi
-	if [ ! $IN_WEB_LOG_DIR = "/www/wwwLogs" ]; then
 		sed -i "s:/www/wwwLogs:$IN_WEB_LOG_DIR:g" $IN_DIR/vhost.sh
 	fi
+
+	chmod +x $IN_DIR/action/nginx
 	chmod +x $IN_DIR/vhost.sh
 	ln -s $IN_DIR/vhost.sh /root/vhost.sh
 	
