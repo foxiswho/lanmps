@@ -1,0 +1,32 @@
+---
+---
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+  <body>
+
+        {% include sidebar.html %}
+        <div class="menu-icon"></div>
+      <div class="contents">
+        {% include header.html %}
+
+      <div class="page-content">
+          <div class="wrapper">
+            {{ content }}
+          </div>
+      </div>
+
+{% include footer.html %}
+      </div>
+
+{% include 3d-menu.html %}
+
+
+{% if site.analytics %}
+ {% include analytics.html %}
+{% endif %}
+
+</body>
+</html>

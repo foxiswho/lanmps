@@ -1,0 +1,72 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: LANMPS 一键PHP环境安装包
+email: foxiswho@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  LANMPS一键安装包,Linux+Nginx+Mysql+PHP+ElasticSearch ( phpmyadmin+opencache+xdebug )环境套件包,绿色PHP套件，一键自动安装
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://lanmps.com" # the base hostname & protocol for your site
+
+
+# Build settings
+markdown: kramdown
+baseurl: ""
+permalink: /:title/
+
+disqus-shortname: LANMPS
+
+
+kramdown:
+  input: GFM
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+    - hard_wrap
+    - no_intra_emphasis
+    - strikethrough
+    - fenced_code_blocks
+    - with_toc_data
+    - tables
+    - underline
+  use_coderay: false
+  syntax_highlighter: rouge
+
+#compress.html
+compress_html:
+  clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
+  comments: ["<!-- ", " -->"]
+  endings: [all]
+  ignore:
+    envs: [local]
+  blanklines: false
+  profile: false
+  startings: []
+
+sass: 
+  style: compressed
+
+analytics: UA-83979019-1
+
+version: 1.0
+
+gems: [jekyll-paginate, jekyll-seo-tag]
+
+  
+prose:
+  rooturl: ''
+  siteurl: 'http://prose.github.io/starter/'
+  relativeLinks: 'http://prose.github.io/starter/links.jsonp'
+  media: 'images'
+  ignore:
+    - index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+

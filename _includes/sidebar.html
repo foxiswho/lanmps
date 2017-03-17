@@ -1,0 +1,19 @@
+<div class="meny">
+    <h2 class="menu-header">菜单</h2>
+    <ul class="menu-ul">
+        <a href="{{site.baseurl}}/"><li class="meny-li">首页</li></a>
+        <a href="{{site.baseurl}}/list/"><li class="meny-li">文章</li></a>
+        <a href="{{site.baseurl}}/lanmps-status.html"><li class="meny-li">状态管理命令</li></a>
+        <a href="{{site.baseurl}}/lanmps-file-list.html"><li class="meny-li">目录说明</li></a>
+        <a href="{{site.baseurl}}/lanmps-about.html"><li class="meny-li">关于Lanmps</li></a>
+        <a href="{{site.baseurl}}/lanmps-ext.html"><li class="meny-li">PHP扩展</li></a>
+        <a href="{{site.baseurl}}/lanmps-tools.html"><li class="meny-li">PHP开发工具套件</li></a>
+        <a href="https://github.com/foxiswho/lanmps" target="_blank"><li class="meny-li">GitHub</li></a>
+        <a ><li class="meny-li">-------</li></a>
+        <a href="http://foxwho.com" target="_blank"><li class="meny-li">博客</li></a>
+        <a href="http://blog.csdn.net/fenglailea" target="_blank"><li class="meny-li">csdn博客</li></a>
+    </ul>
+    {% if site.version %}
+    <p style="color: #eee">Site Version {{site.version}}</p>
+    {% endif %}
+</div>
