@@ -11,7 +11,7 @@ email: foxiswho@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   LANMPS一键安装包,Linux+Nginx+Mysql+PHP+ElasticSearch ( phpmyadmin+opencache+xdebug )环境套件包,绿色PHP套件，一键自动安装
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://lanmps.com" # the base hostname & protocol for your site
+url: "http://github.lanmps.com/" # the base hostname & protocol for your site
 
 
 # Build settings

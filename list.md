@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 列表
-permalink: /list.html
+permalink: /list/index.html
 ---
 
 <div class="home">
