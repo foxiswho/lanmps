@@ -61,8 +61,7 @@ gems: [jekyll-paginate, jekyll-seo-tag]
   
 prose:
   rooturl: ''
-  siteurl: 'http://prose.github.io/starter/'
-  relativeLinks: 'http://prose.github.io/starter/links.jsonp'
+  siteurl: 'http://github.lanmps.com/'
   media: 'images'
   ignore:
     - index.md
