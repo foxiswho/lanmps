@@ -6,7 +6,7 @@ Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )环境套件�
 -------------------------------------
 
 * 系统：Linux下CentOS,RedHat,Ubuntu
-* 内存：大于等于512M内存 
+* 内存：大于等于2048M内存  (目前没有针对小内存优化)
 * 安装时需要联网
 
 LANMPS 一键安装包V3.2.2 ：Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
