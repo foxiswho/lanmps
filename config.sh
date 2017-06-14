@@ -11,7 +11,7 @@ IN_WEB_DIR="/www/wwwroot"
 IN_WEB_LOG_DIR="/www/wwwLogs"
 
 #Asia/Shanghai  时区 设置为上海
-TIME_ZONE=1
+TIME_ZONE=1X
 #程序名称
 PROGRAM_NAME="LANMPS"
 PROGRAM_VERSION="V 3.0.0"

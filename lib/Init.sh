@@ -2,7 +2,7 @@ function Init()
 {
 	echo "===========     Init         ============================"
 	#Set timezone
-	if [ "$TIME_ZONE" = "1" ]; then
+	if [ "$TIME_ZONE" = "1X" ]; then
 		rm -rf /etc/localtime
 		ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 	fi
