@@ -84,6 +84,10 @@ EOF
 	
 	#start
 	$MYSQL_BIN_PATH start
+
+	ln -s $MYSQL_PATH/bin/mysql /usr/bin/mysql
+    ln -s $MYSQL_PATH/bin/mysqldump /usr/bin/mysqldump
+
 :<<注释
 	$MYSQL_PATH/bin/mysqladmin -u root password $MysqlPassWord
 
