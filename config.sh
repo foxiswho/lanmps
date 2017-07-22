@@ -11,10 +11,10 @@ IN_WEB_DIR="/www/wwwroot"
 IN_WEB_LOG_DIR="/www/wwwLogs"
 
 #Asia/Shanghai  时区 设置为上海
-TIME_ZONE=1X
+TIME_ZONE=1
 #程序名称
 PROGRAM_NAME="LANMPS"
-PROGRAM_VERSION="V 3.0.0"
+PROGRAM_VERSION="V 3.2.3"
 #安装服务
 SERVER="nginx"
 
@@ -47,8 +47,8 @@ declare -A VERS;
 declare -A DUS;
 # soft url and down
 #http://nginx.org/download/nginx-1.8.0.tar.gz
-DUS['nginx']="http://download.lanmps.com/nginx/nginx-1.11.7.tar.gz"
-VERS['nginx']="1.11.7"
+DUS['nginx']="http://download.lanmps.com/nginx/nginx-1.12.1.tar.gz"
+VERS['nginx']="1.12.1"
 #http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.29.tar.gz
 DUS['mysql']="http://download.lanmps.com/mysql/mysql-5.6.35.tar.gz"
 VERS['mysql']="5.6.35"
@@ -61,23 +61,23 @@ DUS['mysql5.7.x']="http://download.lanmps.com/mysql/mysql-5.7.17.tar.gz"
 VERS['mysql5.7.x']="5.7.17"
 
 #https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
-DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.21.tar.gz"
-VERS['MariaDB']="10.1.21"
+DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
+VERS['MariaDB']="10.1.25"
 
 #https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
-DUS['mariadb10.1.x']="http://download.lanmps.com/mysql/mariadb-10.1.21.tar.gz"
-VERS['mariadb10.1.x']="10.1.21"
+DUS['mariadb10.1.x']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
+VERS['mariadb10.1.x']="10.1.25"
 
 #http://cn2.php.net/distributions/php-7.0.14.tar.gz
-DUS['php7.0.x']="http://download.lanmps.com/php/php-7.0.16.tar.gz"
-VERS['php7.0.x']="7.0.16"
+DUS['php7.0.x']="http://download.lanmps.com/php/php-7.0.21.tar.gz"
+VERS['php7.0.x']="7.0.21"
 
-DUS['php7.1.x']="http://download.lanmps.com/php/php-7.1.2.tar.gz"
-VERS['php7.1.x']="7.1.2"
+DUS['php7.1.x']="http://download.lanmps.com/php/php-7.1.7.tar.gz"
+VERS['php7.1.x']="7.1.7"
 
 #http://cn2.php.net/distributions/php-5.6.10.tar.gz
-DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.30.tar.gz"
-VERS['php5.6.x']="5.6.30"
+DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.31.tar.gz"
+VERS['php5.6.x']="5.6.31"
 
 #http://cn2.php.net/distributions/php-5.5.26.tar.gz
 DUS['php5.5.x']="http://download.lanmps.com/php/php-5.5.38.tar.gz"
