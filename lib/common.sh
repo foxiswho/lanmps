@@ -159,7 +159,7 @@ fi
 echo "Input $PHP_VER_ID  ,PHP_VER=${PHP_VER} ,PHP_KEY=${PHP_KEY} , ${PHP_VER_NUM}"
 
 echo "Select mysql :
-    3 MariaDB (default)
+    3 MariaDB (default ${VERS['mariadb10.2.x']})
     2 MySql  ${VERS['mysql5.7.x']}
     1 MySql  ${VERS['mysql5.6.x']}
     0 don't install is now
@@ -177,8 +177,8 @@ elif [ $MYSQL_SELECT == "2" ]; then
    MYSQL_KEY="5.7.x"
    MYSQL_SELECT=2
 elif [ $MYSQL_SELECT == "3" ]; then
-    MYSQL_VER=${VERS['mariadb10.1.x']}
-    MYSQL_KEY="10.1.x"
+    MYSQL_VER=${VERS['mariadb10.2.x']}
+    MYSQL_KEY="10.2.x"
     MYSQL_ID="MariaDB"
     MYSQL_SELECT=3
 else

@@ -64,6 +64,9 @@ VERS['mysql5.7.x']="5.7.17"
 DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
 VERS['MariaDB']="10.1.25"
 
+DUS['mariadb10.2.x']="http://download.lanmps.com/mysql/mariadb-10.2.7.tar.gz"
+VERS['mariadb10.2.x']="10.2.7"
+
 #https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
 DUS['mariadb10.1.x']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
 VERS['mariadb10.1.x']="10.1.25"
