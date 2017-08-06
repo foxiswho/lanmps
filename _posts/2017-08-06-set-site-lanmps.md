@@ -6,8 +6,11 @@ permalink: /set_site_lanmps.html
 
 假设：
 >服务器环境：CentOs 7.3
+
 >套件： LANMPS 一键PHP环境安装包
+
 >程序框架：thinkphp 5.x
+
 >域名：lanmps.com
 
 风.fox
