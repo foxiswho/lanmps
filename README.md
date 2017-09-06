@@ -108,6 +108,27 @@ LANMPS脚本就会自动编译安装Nginx、MySQL、PHP、phpMyAdmin、Opencache
 
 ![](/doc/images/lanmps-05.png)
 
+如果重新启动服务器后无法访问站点,记得`关闭防火墙`或`开启防火墙端口`
+
+Centos 7:
+>关闭防火墙： `sudo systemctl stop firewalld.service`
+>关闭开机启动：`sudo systemctl disable firewalld.service`
+
+Centos 7 执行 下面两条命令   一个是 增加 防火墙端口，一个是重启防火墙
+```SHELL
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+systemctl restart firewalld.service
+```
+
+Ubuntu 16.x:
+>
+
+# 安装设置新站点 案例
+[使用 lanmps 环境套件安装设置新站点 案例](/set_site_lanmps.html)
+
+[配置相关说明](/lanmps-conf.html)
+
+
 # LANMPS 状态管理命令
 [LANMPS 状态管理命令](/lanmps-status.html)
 # LANMPS 目录说明
