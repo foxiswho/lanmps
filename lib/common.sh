@@ -52,7 +52,7 @@ if [ $X86 = 1 ]; then
 t_median=64
 fi
 MemTotal=`free -m | grep Mem | awk '{print  $2}'`
-echo "LANMPS ${PROGRAM_VERSION} for CentOS/Ubuntu Linux Written by Feng"
+echo "LANMPS ${PROGRAM_VERSION} for CentOS/Ubuntu Linux Written by foxwho"
 echo "========================================================================="
 echo "A tool to auto-compile & install Apache+Nginx+MySQL+PHP on Linux "
 echo "For more information please visit http://www.lanmps.com"
@@ -78,7 +78,7 @@ if [[ "$START"x != "no"x  ]]; then
 echo ""
 #    2 Apache + php + mysql + es  + memcache + phpmyadmin
 echo "Select Install  ( 1 default ):
-    1 Nginx + php + mysql + es  + memcache + phpmyadmin
+    1 Nginx + php + mysql + redis + phpmyadmin
 
     5 don't install is now"
 sleep 0.1
@@ -108,10 +108,8 @@ PHP_VER_NUM=71
 PHP_VER_ID=4
 echo
 echo "Select php version:
-    4 php-${VERS['php7.1.x']} (default)
-    3 php-${VERS['php7.0.x']}
-    2 php-${VERS['php5.6.x']}
-    1 php-${VERS['php5.5.x']}
+    2 php-${VERS['php7.1.x']} (default)
+    1 php-${VERS['php5.6.x']}
     0 don't install is now "
 read -p "Please Input 1-6: " PHP_VER_ID
 if [ "$PHP_VER_ID" = "" ]; then
@@ -130,23 +128,23 @@ elif [ "${PHP_VER_ID}" == "1" ]; then
 	PHP_KEY="php5.4.x"
 	PHP_VER_ID=1
 	PHP_VER_NUM=54
-注释
 if [ "${PHP_VER_ID}" == "1" ]; then
     PHP_VER=${VERS['php5.5.x']}
 	PHP_KEY="php5.5.x"
 	PHP_VER_ID=1
 	PHP_VER_NUM=55
-elif [ "${PHP_VER_ID}" == "2" ]; then
-    PHP_VER=${VERS['php5.6.x']}
-	PHP_KEY="php5.6.x"
-	PHP_VER_ID=2
-	PHP_VER_NUM=56
 elif [ "${PHP_VER_ID}" == "3" ]; then
     PHP_VER=${VERS['php7.0.x']}
 	PHP_KEY="php7.0.x"
 	PHP_VER_ID=3
 	PHP_VER_NUM=70
-elif [ $PHP_VER_ID == "4" ]; then
+注释
+elif [ "${PHP_VER_ID}" == "1" ]; then
+    PHP_VER=${VERS['php5.6.x']}
+	PHP_KEY="php5.6.x"
+	PHP_VER_ID=2
+	PHP_VER_NUM=56
+elif [ $PHP_VER_ID == "2" ]; then
     PHP_VER=${VERS['php7.1.x']}
 	PHP_KEY="php7.1.x"
 	PHP_VER_ID=4

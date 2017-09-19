@@ -14,7 +14,7 @@ IN_WEB_LOG_DIR="/www/wwwLogs"
 TIME_ZONE=1
 #程序名称
 PROGRAM_NAME="LANMPS"
-PROGRAM_VERSION="V 3.2.3"
+PROGRAM_VERSION="V 3.2.5"
 #安装服务
 SERVER="nginx"
 
@@ -60,24 +60,25 @@ VERS['mysql5.6.x']="5.6.37"
 #http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.13.tar.gz
 DUS['mysql5.7.x']="http://download.lanmps.com/mysql/mysql-5.7.19.tar.gz"
 VERS['mysql5.7.x']="5.7.19"
+#https://downloads.mariadb.org/
+#https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
+#DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
+#VERS['MariaDB']="10.1.25"
+#https://downloads.mariadb.org/
+#https://downloads.mariadb.org/f/mariadb-10.2.8/source/mariadb-10.2.8.tar.gz
+DUS['mariadb10.2.x']="http://download.lanmps.com/mysql/mariadb-10.2.8.tar.gz"
+VERS['mariadb10.2.x']="10.2.8"
 
 #https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
-DUS['MariaDB']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
-VERS['MariaDB']="10.1.25"
-
-DUS['mariadb10.2.x']="http://download.lanmps.com/mysql/mariadb-10.2.7.tar.gz"
-VERS['mariadb10.2.x']="10.2.7"
-
-#https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
-DUS['mariadb10.1.x']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
-VERS['mariadb10.1.x']="10.1.25"
+#DUS['mariadb10.1.x']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
+#VERS['mariadb10.1.x']="10.1.25"
 
 #http://cn2.php.net/distributions/php-7.0.14.tar.gz
 DUS['php7.0.x']="http://download.lanmps.com/php/php-7.0.21.tar.gz"
 VERS['php7.0.x']="7.0.21"
-
-DUS['php7.1.x']="http://download.lanmps.com/php/php-7.1.7.tar.gz"
-VERS['php7.1.x']="7.1.7"
+#http://cn2.php.net/distributions/php-7.1.9.tar.gz
+DUS['php7.1.x']="http://download.lanmps.com/php/php-7.1.9.tar.gz"
+VERS['php7.1.x']="7.1.9"
 
 #http://cn2.php.net/distributions/php-5.6.10.tar.gz
 DUS['php5.6.x']="http://download.lanmps.com/php/php-5.6.31.tar.gz"
@@ -88,33 +89,36 @@ DUS['php5.5.x']="http://download.lanmps.com/php/php-5.5.38.tar.gz"
 VERS['php5.5.x']="5.5.38"
 
 #http://cn2.php.net/distributions/php-5.4.42.tar.gz
-DUS['php5.4.x']="http://download.lanmps.com/php/php-5.4.45.tar.gz"
-VERS['php5.4.x']="5.4.45"
+#DUS['php5.4.x']="http://download.lanmps.com/php/php-5.4.45.tar.gz"
+#VERS['php5.4.x']="5.4.45"
 
 #http://cn2.php.net/distributions/php-5.3.29.tar.gz
-DUS['php5.3.x']="http://download.lanmps.com/php/php-5.3.29.tar.gz"
-VERS['php5.3.x']="5.3.29"
-
-#https://files.phpmyadmin.net/phpMyAdmin/4.6.5.2/phpMyAdmin-4.6.5.2-all-languages.tar.gz
-DUS['phpMyAdmin']="http://download.lanmps.com/phpMyAdmin/phpMyAdmin-4.7.3-all-languages.tar.gz"
-VERS['phpMyAdmin']="4.7.3"
-
+#DUS['php5.3.x']="http://download.lanmps.com/php/php-5.3.29.tar.gz"
+#VERS['php5.3.x']="5.3.29"
+#https://www.phpmyadmin.net/
+#https://files.phpmyadmin.net/phpMyAdmin/4.7.4/phpMyAdmin-4.7.4-all-languages.tar.gz
+DUS['phpMyAdmin']="https://files.phpmyadmin.net/phpMyAdmin/4.7.4/phpMyAdmin-4.7.4-all-languages.tar.gz"
+VERS['phpMyAdmin']="4.7.4"
+#http://www.pcre.org/
+#https://ftp.pcre.org/pub/pcre/
 DUS['libpcre']="http://download.lanmps.com/basic/pcre-8.39.tar.gz"
 VERS['libpcre']="8.39"
-
-DUS['libiconv']="http://download.lanmps.com/basic/libiconv-1.14.tar.gz"
-VERS['libiconv']="1.14"
+#http://www.gnu.org/software/libiconv/
+#https://ftp.gnu.org/pub/gnu/libiconv/
+DUS['libiconv']="http://download.lanmps.com/basic/libiconv-1.15.tar.gz"
+VERS['libiconv']="1.15"
 
 DUS['autoconf']="http://download.lanmps.com/basic/autoconf-2.69.tar.gz"
 VERS['autoconf']="2.69"
-
-DUS['libevent']="http://download.lanmps.com/basic/libevent-2.0.21-stable.tar.gz"
-VERS['libevent']="2.0.21"
-
+#http://libevent.org/
+#https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+DUS['libevent']="http://download.lanmps.com/basic/libevent-2.1.8-stable.tar.gz"
+VERS['libevent']="2.1.8"
+#https://redis.io/
 #http://download.redis.io/releases/redis-4.0.1.tar.gz
 DUS['redis']="http://download.lanmps.com/redis/redis-4.0.1.tar.gz"
 VERS['redis']="4.0.1"
-
+#http://pecl.php.net/package/redis
 #http://pecl.php.net/get/redis-3.1.0.tgz
 DUS['php-redis']="http://download.lanmps.com/php_ext/redis-3.1.3.tgz"
 VERS['php-redis']="3.1.3"
@@ -143,7 +147,8 @@ VERS['libmhash']="0.9.9.9"
 #http://nchc.dl.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz
 DUS['mcrypt']="http://download.lanmps.com/basic/mcrypt-2.6.8.tar.gz"
 VERS['mcrypt']="2.6.8"
-
+#https://xdebug.org/
+#https://xdebug.org/files/xdebug-2.5.5.tgz
 DUS['php-xdebug']="http://xdebug.org/files/xdebug-2.5.5.tgz"
 VERS['php-xdebug']="2.5.5"
 
