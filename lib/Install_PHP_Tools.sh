@@ -12,6 +12,8 @@ function Install_PHP_Tools()
 	    echo "error: memcache不支持7.x"
 	elif [ $PHP_KEY == "php7.0.x" ]; then
       	    echo "error: memcache不支持7.x"
+    elif [ $PHP_KEY == "php5.6.x" ]; then
+            echo "php5.6.x已关闭memcache"
 	else
         echo "tar zxvf memcache-${VERS['php-memcache']}.tgz"
         cd $IN_DOWN
