@@ -82,8 +82,8 @@ echo "Select Install  ( 1 default ):
 
     5 don't install is now"
 sleep 0.1
-
-read -p "Please Input 1,2,3,4,5: " SERVER_ID
+echo -n "Please Input 1,2,3,4,5: "
+read SERVER_ID
 if [ "$SERVER_ID" = "" ]; then
 	SERVER_ID="1"
 fi
@@ -111,35 +111,14 @@ echo "Select php version:
     2 php-${VERS['php7.1.x']} (default)
     1 php-${VERS['php5.6.x']}
     0 don't install is now "
-read -p "Please Input 1-6: " PHP_VER_ID
+echo -n "Please Input 1-6: "
+read PHP_VER_ID
 if [ "$PHP_VER_ID" = "" ]; then
 	PHP_VER_ID="4"
 	PHP_VER_NUM=71
 fi
 
-:<<注释
-if [ "${PHP_VER_ID}" == "5" ]; then
-    PHP_VER=${VERS['php5.3.x']}
-	PHP_KEY="php5.3.x"
-	PHP_VER_ID=5
-	PHP_VER_NUM=53
-elif [ "${PHP_VER_ID}" == "1" ]; then
-    PHP_VER=${VERS['php5.4.x']}
-	PHP_KEY="php5.4.x"
-	PHP_VER_ID=1
-	PHP_VER_NUM=54
 if [ "${PHP_VER_ID}" == "1" ]; then
-    PHP_VER=${VERS['php5.5.x']}
-	PHP_KEY="php5.5.x"
-	PHP_VER_ID=1
-	PHP_VER_NUM=55
-elif [ "${PHP_VER_ID}" == "3" ]; then
-    PHP_VER=${VERS['php7.0.x']}
-	PHP_KEY="php7.0.x"
-	PHP_VER_ID=3
-	PHP_VER_NUM=70
-注释
-elif [ "${PHP_VER_ID}" == "1" ]; then
     PHP_VER=${VERS['php5.6.x']}
 	PHP_KEY="php5.6.x"
 	PHP_VER_ID=2
@@ -162,7 +141,8 @@ echo "Select mysql :
     1 MySql  ${VERS['mysql5.6.x']}
     0 don't install is now
     "
-read -p "Please Input 1,2: " MYSQL_SELECT
+echo -n "Please Input 1,2: "
+read MYSQL_SELECT
 MYSQL_INITD="mysql"
 if [ $MYSQL_SELECT == "1" ]; then
     MYSQL_VER=${VERS['mysql5.6.x']}
