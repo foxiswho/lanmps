@@ -29,8 +29,11 @@ function Install_Redis()
         ln -s "${REDIS_PATH}/redis-server" /usr/local/bin/redis-server
         ln -s "${REDIS_PATH}/redis-cli" /usr/local/bin/redis-cli
     fi
+    CONF_FILE=$REDIS_PATH/redis.conf
     #设置配置文件后台运行
-    sed -i "s#daemonize no#daemonize yes#g" $REDIS_PATH/redis.conf
+    sed -i "s#daemonize no#daemonize yes#g" $CONF_FILE
+    # 修改日志文件
+    sed -i "s#logfile \"\"#logfile \"/www/wwwLogs/redis.log\"#g" $CONF_FILE
     # 设置启动配置相关
     sed -i "s#/etc/redis/\${REDISPORT}.conf#${REDIS_PATH}/redis.conf#g" ${IN_DIR}/bin/redis
     sed -i "s#start)#restart)\n\$0 stop\n\$0 start\n;;\nstart)#g" ${IN_DIR}/bin/redis
