@@ -53,7 +53,7 @@ function Install_PHP_Tools()
 	local php_v=`${PHP_PATH}/bin/php -v`
 	local php_ext_date="20160303"
 	#extension=fileinfo.so\nextension=intl.so\nextension=phar.so
-	local PHP_EXT='\nextension = "memcache.so"\nextension = "redis.so"\n'
+	local PHP_EXT='\n;extension = "memcache.so"\nextension = "redis.so"\n'
 	sed -i 's#; extension_dir = "./"#extension_dir = "./"#' $php_ini
 	echo "PHP 版本"
 	echo "php_vvvvvvv"
@@ -93,10 +93,10 @@ function Install_PHP_Tools()
 	    php_ext_date="no-debug-non-zts-${php_ext_date}"
 	fi
 	echo "${php_ext_date}"
-
+    local PHP_EXT2 =${PHP_EXT}'\n;extension = "ssh2.so"'
 	EXTENSION_DIR=${PHP_PATH}/lib/php/extensions/${php_ext_date}
-	sed -i "s#extension_dir = \"./\"#extension_dir=${EXTENSION_DIR}${PHP_EXT}#" $php_ini
-	echo 's#extension_dir = "./"#extension_dir = '${EXTENSION_DIR}${PHP_EXT}'#'
+	sed -i "s#extension_dir = \"./\"#extension_dir=${EXTENSION_DIR}${PHP_EXT2}#" $php_ini
+	echo 's#extension_dir = "./"#extension_dir = '${EXTENSION_DIR}${PHP_EXT2}'#'
 	
 	echo "Install xdebug php extension..."
 	cd $IN_DOWN
@@ -148,4 +148,14 @@ EOF
         php -r "unlink('composer-setup.php');"
 
         mv composer.phar /usr/local/bin/composer
+
+    echo "安装php 扩展 ssh2"
+
+
+    ProgramDownloadFiles "php-ssh2" "ssh2-${VERS['php-ssh2']}.tar.gz"
+    cd ssh2-${VERS['php-ssh2']}
+    make distclean
+	${PHP_PATH}/bin/phpize
+	./configure --with-ssh2=/usr/local/libssh2 --with-php-config=${PHP_PATH}/bin/php-config
+    make && make install
 }

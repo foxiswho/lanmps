@@ -175,3 +175,11 @@ VERS['libtool']="2.4.6"
 
 DUS['boost']="http://download.lanmps.com/basic/boost_1_59_0.tar.gz"
 VERS['boost']="1_59_0"
+
+#https://www.libssh2.org/
+#https://www.libssh2.org/download/libssh2-1.8.0.tar.gz
+DUS['libssh2']="https://www.libssh2.org/download/libssh2-1.8.0.tar.gz"
+VERS['libssh2']="1.8.0"
+#http://pecl.php.net/package/ssh2
+DUS['php-ssh2']="http://pecl.php.net/get/ssh2-1.1.2.tgz"
+VERS['php-ssh2']="1.1.2"
