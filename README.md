@@ -1,5 +1,9 @@
 LANMPS 一键安装包,php绿色环境套件包
 =====================================
+# LANMPS 一键安装包是什么?
+
+LANMPS 一键安装包是一个开源Linux Shell编写的可以为CentOS/Ubuntu Linux服务器或独立主机安装LANMP(Nginx/Apache/MySQL/PHP/Elasticsearch)、LNMA(Nginx/MySQL/PHP)、生产环境的Shell安装套件报程序。
+
 Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )环境套件包,绿色PHP套件，一键自动安装
 
 系统需求
