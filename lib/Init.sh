@@ -234,10 +234,10 @@ function Init_basic()
     ./configure --prefix=/usr
     make && make install
 
-    ProgramDownloadFiles "libssh2" "libssh2-${VERS['libssh2']}.tar.gz"
-    cd $IN_DOWN/
-    tar -zxvf libssh2-${VERS['libssh2']}.tar.gz
-    cd libssh2-${VERS['libssh2']}
-    ./configure --prefix=/usr/local/libssh2
-    make && make install
+    #ProgramDownloadFiles "libssh2" "libssh2-${VERS['libssh2']}.tar.gz"
+    #cd $IN_DOWN/
+    #tar -zxvf libssh2-${VERS['libssh2']}.tar.gz
+    #cd libssh2-${VERS['libssh2']}
+    #./configure --prefix=/usr/local/libssh2
+    #make && make install
 }

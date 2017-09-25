@@ -152,10 +152,10 @@ EOF
     echo "安装php 扩展 ssh2"
 
 
-    ProgramDownloadFiles "php-ssh2" "ssh2-${VERS['php-ssh2']}.tar.gz"
-    cd ssh2-${VERS['php-ssh2']}
-    make distclean
-	${PHP_PATH}/bin/phpize
-	./configure --with-ssh2=/usr/local/libssh2 --with-php-config=${PHP_PATH}/bin/php-config
-    make && make install
+    #ProgramDownloadFiles "php-ssh2" "ssh2-${VERS['php-ssh2']}.tar.gz"
+    #cd ssh2-${VERS['php-ssh2']}
+    #make distclean
+	#${PHP_PATH}/bin/phpize
+	#./configure --with-ssh2=/usr/local/libssh2 --with-php-config=${PHP_PATH}/bin/php-config
+    #make && make install
 }
