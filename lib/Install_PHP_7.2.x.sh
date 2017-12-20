@@ -1,6 +1,6 @@
-echo "开始安装 PHP 7.1.X 版本"
+echo "开始安装 PHP 7.2.X 版本"
 yum install -y  libicu-devel
-PHP_PATH=${IN_DIR}/php${VERS['php7.1.x']}
+PHP_PATH=${IN_DIR}/php${VERS['php7.2.x']}
 tmp_configure=""
 if [ $SERVER == "nginx" ]; then
 	tmp_configure="--enable-fpm --with-fpm-user=www --with-fpm-group=www"
@@ -8,7 +8,7 @@ else
 	tmp_configure="--with-apxs2=${IN_DIR}/apache/bin/apxs"
 fi
 
-echo "php-${VERS['php7.1.x']}.tar.gz"
+echo "php-${VERS['php7.2.x']}.tar.gz"
 
 cd $IN_DOWN
 tar zxvf php-${PHP_VER}.tar.gz
@@ -58,14 +58,17 @@ cd php-${PHP_VER}/
 --enable-zip \
 --enable-intl \
 --disable-rpath $tmp_configure
+
+#--enable-mysqlnd
+
 #make ZEND_EXTRA_LIBS='-liconv'
 make
 make install
 
 if [ -e /usr/bin/php ]; then
-    ln -s "${PHP_PATH}/bin/php" /usr/bin/php71
-    ln -s "${PHP_PATH}/bin/phpize" /usr/bin/phpize71
-    ln -s "${PHP_PATH}/sbin/php-fpm" /usr/bin/php-fpm71
+    ln -s "${PHP_PATH}/bin/php" /usr/bin/php72
+    ln -s "${PHP_PATH}/bin/phpize" /usr/bin/phpize72
+    ln -s "${PHP_PATH}/sbin/php-fpm" /usr/bin/php-fpm72
 else
     ln -s "${PHP_PATH}/bin/php" /usr/bin/php
     ln -s "${PHP_PATH}/bin/phpize" /usr/bin/phpize
@@ -120,17 +123,17 @@ if [ $SERVER == "nginx" ]; then
 
             echo "Copy php-fpm init.d file......"
 
-            PHP_BIN_PATH=$IN_DIR/bin/php-fpm71
+            PHP_BIN_PATH=$IN_DIR/bin/php-fpm72
             cp "${IN_DOWN}/php-${PHP_VER}/sapi/fpm/init.d.php-fpm" $PHP_BIN_PATH
             chmod +x $PHP_BIN_PATH
             if [ ! $IN_DIR = "/www/lanmps" ]; then
                 sed -i "s:/www/lanmps:$IN_DIR:g" $PHP_BIN_PATH
             fi
 
-            sed -i "s#bin/php-fpm#bin/php-fpm71#g" $IN_DIR/lanmps
-            sed -i "s#bin/php-fpm#bin/php-fpm71#g" $IN_DIR/vhost.sh
+            sed -i "s#bin/php-fpm#bin/php-fpm72#g" $IN_DIR/lanmps
+            sed -i "s#bin/php-fpm#bin/php-fpm72#g" $IN_DIR/vhost.sh
             #服务内名称等替换
-            sed -i "s#bin/php-fpm#bin/php-fpm71#g" $IN_PWD/conf/service.php-fpm.service
+            sed -i "s#bin/php-fpm#bin/php-fpm72#g" $IN_PWD/conf/service.php-fpm.service
 
 
 fi
