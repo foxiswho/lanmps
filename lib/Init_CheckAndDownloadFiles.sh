@@ -100,8 +100,8 @@ EOF
 function Install_Openssl()
 {
 	cd $IN_DOWN
-	tar zxvf openssl-1.0.1h.tar.gz
-	cd openssl-1.0.1h
+	tar zxvf openssl-1.0.2n.tar.gz
+	cd openssl-1.0.2n
 	./config --prefix=/usr/local/openssl
 	make && make install
 	mv /usr/bin/openssl /usr/bin/openssl.OFF
