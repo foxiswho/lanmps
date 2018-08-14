@@ -108,7 +108,8 @@ PHP_VER_NUM=71
 PHP_VER_ID=4
 echo
 echo "Select php version:
-    2 php-${VERS['php7.1.x']} (default)
+    3 php-${VERS['php7.2.x']} (default)
+    2 php-${VERS['php7.1.x']}
     1 php-${VERS['php5.6.x']}
     0 don't install is now "
 echo -n "Please Input 1-6: "
@@ -121,13 +122,18 @@ fi
 if [ "${PHP_VER_ID}" == "1" ]; then
     PHP_VER=${VERS['php5.6.x']}
 	PHP_KEY="php5.6.x"
-	PHP_VER_ID=2
+	PHP_VER_ID=1
 	PHP_VER_NUM=56
 elif [ $PHP_VER_ID == "2" ]; then
     PHP_VER=${VERS['php7.1.x']}
 	PHP_KEY="php7.1.x"
-	PHP_VER_ID=4
+	PHP_VER_ID=2
 	PHP_VER_NUM=71
+elif [ $PHP_VER_ID == "3" ]; then
+    PHP_VER=${VERS['php7.2.x']}
+	PHP_KEY="php7.2.x"
+	PHP_VER_ID=3
+	PHP_VER_NUM=72
 else
     echo ${PHP_VER_ID}
     echo ${PHP_VER_NUM}
@@ -136,7 +142,7 @@ fi
 echo "Input $PHP_VER_ID  ,PHP_VER=${PHP_VER} ,PHP_KEY=${PHP_KEY} , ${PHP_VER_NUM}"
 
 echo "Select mysql :
-    3 MariaDB (default ${VERS['mariadb10.2.x']})
+    3 MariaDB (default ${VERS['mariadb10.3.x']})
     2 MySql  ${VERS['mysql5.7.x']}
     1 MySql  ${VERS['mysql5.6.x']}
     0 don't install is now
@@ -155,8 +161,8 @@ elif [ $MYSQL_SELECT == "2" ]; then
    MYSQL_KEY="5.7.x"
    MYSQL_SELECT=2
 elif [ $MYSQL_SELECT == "3" ]; then
-    MYSQL_VER=${VERS['mariadb10.2.x']}
-    MYSQL_KEY="10.2.x"
+    MYSQL_VER=${VERS['mariadb10.3.x']}
+    MYSQL_KEY="10.3.x"
     MYSQL_ID="MariaDB"
     MYSQL_SELECT=3
 else

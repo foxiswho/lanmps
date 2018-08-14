@@ -44,7 +44,6 @@ cd php-${PHP_VER}/
 --enable-libxml \
 --enable-intl \
 --enable-inline-optimization \
---enable-gd-native-ttf \
 --enable-mbregex \
 --enable-mbstring \
 --enable-opcache \
