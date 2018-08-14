@@ -8,8 +8,10 @@ function Install_PHP_Tools()
     echo "================================="
     echo "================================="
 	echo "Install memcache php extension..."
-	if [ $PHP_KEY == "php7.1.x" ]; then
+	if [ $PHP_KEY == "php7.2.x" ]; then
 	    echo "error: memcache不支持7.x"
+	elif [ $PHP_KEY == "php7.1.x" ]; then
+      	    echo "error: memcache不支持7.x"
 	elif [ $PHP_KEY == "php7.0.x" ]; then
       	    echo "error: memcache不支持7.x"
     elif [ $PHP_KEY == "php5.6.x" ]; then
@@ -31,9 +33,12 @@ function Install_PHP_Tools()
     echo "tar zxvf redis-${VERS['php-redis']}.tgz"
     cd $IN_DOWN
 
-    if [ $PHP_KEY == "php7.1.x" ]; then
+    if [ $PHP_KEY == "php7.2.x" ]; then
         tar zxvf redis-${VERS['php-redis']}.tgz
         cd redis-${VERS['php-redis']}
+    elif [ $PHP_KEY == "php7.1.x" ]; then
+            tar zxvf redis-${VERS['php-redis']}.tgz
+            cd redis-${VERS['php-redis']}
     elif [ $PHP_KEY == "php7.0.x" ]; then
         tar zxvf redis-${VERS['php-redis']}.tgz
         cd redis-${VERS['php-redis']}
@@ -59,10 +64,14 @@ function Install_PHP_Tools()
 	echo "php_vvvvvvv"
 	echo "${PHP_PATH}/bin/php -v"
 	echo $php_v
-	if echo "$php_v" | grep -q "7\.1\."; then
+	if echo "$php_v" | grep -q "7\.2\."; then
         	php_ext_date="20160303"
         	PHP_EXT='\nextension = "redis.so"\n'
-        	echo "7.1."
+        	echo "7.2."
+    elif echo "$php_v" | grep -q "7\.1\."; then
+              	php_ext_date="20160303"
+              	PHP_EXT='\nextension = "redis.so"\n'
+              	echo "7.1."
 	elif echo "$php_v" | grep -q "7\.0\."; then
     		php_ext_date="20151012"
     		PHP_EXT='\nextension = "redis.so"\n'
