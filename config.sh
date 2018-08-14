@@ -105,8 +105,8 @@ VERS['php5.5.x']="5.5.38"
 #VERS['php5.3.x']="5.3.29"
 #https://www.phpmyadmin.net/
 #https://files.phpmyadmin.net/phpMyAdmin/4.7.4/phpMyAdmin-4.7.4-all-languages.tar.gz
-DUS['phpMyAdmin']="https://files.phpmyadmin.net/phpMyAdmin/4.7.6/phpMyAdmin-4.7.6-all-languages.tar.gz"
-VERS['phpMyAdmin']="4.7.6"
+DUS['phpMyAdmin']="https://files.phpmyadmin.net/phpMyAdmin/4.8.2/phpMyAdmin-4.8.2-all-languages.tar.gz"
+VERS['phpMyAdmin']="4.8.2"
 #http://www.pcre.org/
 #https://ftp.pcre.org/pub/pcre/
 DUS['libpcre']="http://download.lanmps.com/basic/pcre-8.39.tar.gz"
@@ -124,12 +124,12 @@ DUS['libevent']="http://download.lanmps.com/basic/libevent-2.1.8-stable.tar.gz"
 VERS['libevent']="2.1.8"
 #https://redis.io/
 #http://download.redis.io/releases/redis-4.0.1.tar.gz
-DUS['redis']="http://download.lanmps.com/redis/redis-4.0.6.tar.gz"
-VERS['redis']="4.0.6"
+DUS['redis']="http://download.lanmps.com/redis/redis-4.0.11.tar.gz"
+VERS['redis']="4.0.11"
 #http://pecl.php.net/package/redis
 #http://pecl.php.net/get/redis-3.1.0.tgz
-DUS['php-redis']="http://download.lanmps.com/php_ext/redis-3.1.4.tgz"
-VERS['php-redis']="3.1.4"
+DUS['php-redis']="http://download.lanmps.com/php_ext/redis-4.1.1.tgz"
+VERS['php-redis']="4.1.1"
 
 DUS['php-redis2.x']="http://download.lanmps.com/php_ext/redis-2.2.8.tgz"
 VERS['php-redis2.x']="2.2.8"
