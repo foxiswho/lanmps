@@ -56,7 +56,7 @@ function Install_PHP_Tools()
 	echo "================================="
 
 	local php_v=`${PHP_PATH}/bin/php -v`
-	local php_ext_date="20160303"
+	local php_ext_date="20170718"
 	#extension=fileinfo.so\nextension=intl.so\nextension=phar.so
 	local PHP_EXT='\n;extension = "memcache.so"\nextension = "redis.so"\n'
 	sed -i 's#; extension_dir = "./"#extension_dir = "./"#' $php_ini
@@ -65,7 +65,7 @@ function Install_PHP_Tools()
 	echo "${PHP_PATH}/bin/php -v"
 	echo $php_v
 	if echo "$php_v" | grep -q "7\.2\."; then
-        	php_ext_date="20160303"
+        	php_ext_date="20170718"
         	PHP_EXT='\nextension = "redis.so"\n'
         	echo "7.2."
     elif echo "$php_v" | grep -q "7\.1\."; then
