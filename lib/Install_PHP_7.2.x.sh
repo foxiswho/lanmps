@@ -31,7 +31,6 @@ cd php-${PHP_VER}/
 --with-pdo-sqlite \
 --with-pear \
 --with-png-dir \
---with-mcrypt \
 --with-xmlrpc \
 --with-xsl \
 --with-zlib \
@@ -58,6 +57,7 @@ cd php-${PHP_VER}/
 --enable-intl \
 --disable-rpath $tmp_configure
 
+#--with-mcrypt \
 #--enable-mysqlnd
 
 #make ZEND_EXTRA_LIBS='-liconv'
@@ -88,7 +88,7 @@ sed -i 's/;cgi.fix_pathinfo=0/cgi.fix_pathinfo=0/g' $php_ini
 sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' $php_ini
 sed -i 's/max_execution_time = 30/max_execution_time = 300/g' $php_ini
 sed -i 's/disable_functions =.*/disable_functions = passthru,exec,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server/g' $php_ini
-sed -i 's:mysql.default_socket =:mysql.default_socket ='$IN_DIR'/mysql/data/mysql.sock:g' $php_ini
+#sed -i 's:mysql.default_socket =:mysql.default_socket ='$IN_DIR'/mysql/data/mysql.sock:g' $php_ini
 sed -i 's:pdo_mysql.default_socket.*:pdo_mysql.default_socket ='$IN_DIR'/mysql/data/mysql.sock:g' $php_ini
 sed -i 's/expose_php = On/expose_php = Off/g' $php_ini
 
