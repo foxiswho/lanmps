@@ -142,6 +142,40 @@ function Install_PHP_Tools()
 phpinfo();
 ?>
 EOF
+
+        #yum clean all
+        #yum makecache
+        #yum install epel-release
+        #rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+        #yum update
+        #yum -y install php-devel
+        #yum install pecl --enablerepo=epel
+
+        #curl -o go-pear.php http://pear.php.net/go-pear.phar
+        #$PHP_PATH/bin/php go-pear.php
+
+        echo "===============  SeasLog   ===================="
+
+echo '
+
+[seaslog]
+; configuration for php SeasLog module
+extension =seaslog.so
+seaslog.default_basepath = /www/wwwLog/    ;默认log根目录
+seaslog.default_logger = default                ;默认logger目录
+seaslog.disting_type = 1                            ;是否以type分文件 1是 0否(默认)
+seaslog.disting_by_hour = 0                      ;是否每小时划分一个文件 1是 0否(默认)
+seaslog.use_buffer = 1                              ;是否启用buffer 1是 0否(默认)
+seaslog.buffer_size = 100                         ;buffer中缓冲数量 默认0(不使用buffer_size)
+seaslog.level = 0                                       ;记录日志级别 默认0(所有日志)
+seaslog.trace_error = 1
+seaslog.trace_exception = 0
+seaslog.default_datetime_format = "%Y:%m:%d %H:%M:%S"
+
+'  >> $php_ini
+
+        #http://pecl.php.net/package/SeasLog
+
         echo "==================================="
         echo "==================================="
         echo "==================================="
