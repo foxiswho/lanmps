@@ -14,7 +14,7 @@ IN_WEB_LOG_DIR="/www/wwwLogs"
 TIME_ZONE=1
 #程序名称
 PROGRAM_NAME="LANMPS"
-PROGRAM_VERSION="V 3.3.1"
+PROGRAM_VERSION="V 3.4.0"
 #安装服务
 SERVER="nginx"
 
@@ -191,3 +191,9 @@ VERS['libssh2']="1.8.0"
 #http://pecl.php.net/package/ssh2
 DUS['php-ssh2']="http://pecl.php.net/get/ssh2-1.1.2.tgz"
 VERS['php-ssh2']="1.1.2"
+
+
+#php composer
+#https://getcomposer.org/download/1.7.2/composer.phar
+DUS['composer']="https://getcomposer.org/download/1.7.2/composer.phar"
+VERS['composer']="1.7.2"

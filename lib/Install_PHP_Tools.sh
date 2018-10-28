@@ -150,15 +150,23 @@ EOF
 
         cd $IN_DOWN
         echo "安装 composer "
-        php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
 
-        php composer-setup.php
+        #php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
 
-        php -r "unlink('composer-setup.php');"
+        #php composer-setup.php
 
-        mv composer.phar /usr/local/bin/composer
+        #php -r "unlink('composer-setup.php');"
 
-    echo "安装php 扩展 ssh2"
+        # mv composer.phar /usr/local/bin/composer
+
+
+        cp $IN_DOWN/composer.phar /usr/bin/composer
+        chmod +x /usr/bin/composer
+
+         echo "安装 composer SUCCESS "
+
+
+    #echo "安装php 扩展 ssh2"
 
 
     #ProgramDownloadFiles "php-ssh2" "ssh2-${VERS['php-ssh2']}.tar.gz"
