@@ -88,8 +88,8 @@ function Install_Installed()
 	cd libiconv-${VERS['libiconv']}
 	./configure --prefix=/usr/local/libiconv
 	make && make install
-	file_bk "/usr/bin/iconv"
-	ln -s /usr/local/libiconv/bin/iconv  /usr/bin/iconv
+	#file_bk "/usr/bin/iconv"
+	#ln -s /usr/local/libiconv/bin/iconv  /usr/bin/iconv
 	#ln -s /usr/local/libiconv/lib/libiconv.so /usr/lib/libiconv.so
 	cat > /etc/ld.so.conf.d/libiconv.conf<<EOF
 /usr/local/libiconv/lib
