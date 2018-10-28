@@ -6,16 +6,16 @@ function Init_CheckAndDownloadFiles()
 
 	ProgramDownloadFiles "nginx" "nginx-${VERS['nginx']}.tar.gz"
 	
-	ProgramDownloadFiles "apache" "httpd-${VERS['apache']}.tar.gz"
+	#ProgramDownloadFiles "apache" "httpd-${VERS['apache']}.tar.gz"
 	
 	if [ "$MYSQL_ID" == "mysql" ]; then
 	    tmp_mysql="mysql${MYSQL_KEY}"
 		ProgramDownloadFiles "${tmp_mysql}" "mysql-${tmp_mysql}.tar.gz"
 	else
-		ProgramDownloadFiles "mariadb" "mariadb-${VERS['MariaDB']}.tar.gz"
+		ProgramDownloadFiles "mariadb" "mariadb-${VERS['mariadb10.3.x']}.tar.gz"
 	fi
 	
-	ProgramDownloadFiles "memcache" "memcache-${VERS['php-memcache']}.tgz"
+	#ProgramDownloadFiles "memcache" "memcache-${VERS['php-memcache']}.tgz"
 	
 	ProgramDownloadFiles "xdebug" "xdebug-${VERS['php-xdebug']}.tgz"
 
@@ -83,7 +83,8 @@ function Install_Installed()
 	ProgramInstalled "libxml2" "libxml2-${VERS['libxml2']}.tar.gz" "--prefix=/usr/local/libxml2"
 	
 	#ProgramInstalled "libiconv" "libiconv-${VERS['libiconv']}.tar.gz" "--prefix=/usr/local/libiconv"
-	tar zxvf libiconv-${VERS['libiconv']}.tar.gz
+	cd $IN_DOWN
+	tar -zxvf libiconv-${VERS['libiconv']}.tar.gz
 	cd libiconv-${VERS['libiconv']}
 	./configure --prefix=/usr/local/libiconv
 	make && make install
