@@ -104,8 +104,8 @@ fi
 echo $SERVER
 
 #PHP Version
-PHP_VER_NUM=71
-PHP_VER_ID=4
+PHP_VER_NUM=72
+PHP_VER_ID=3
 echo
 echo "Select php version:
     3 php-${VERS['php7.2.x']} (default)
@@ -115,8 +115,8 @@ echo "Select php version:
 echo -n "Please Input 1-6: "
 read PHP_VER_ID
 if [ "$PHP_VER_ID" = "" ]; then
-	PHP_VER_ID="4"
-	PHP_VER_NUM=71
+	PHP_VER_ID="3"
+	PHP_VER_NUM=72
 fi
 
 if [ "${PHP_VER_ID}" == "1" ]; then

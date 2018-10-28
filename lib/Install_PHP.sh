@@ -26,6 +26,8 @@ function Install_PHP {
 	elif echo "${PHP_VER}" | grep -q "5.2."; then
 		ver_tmp="5.2.x"
 	fi
+
+	echo "import ${IN_PWD}/lib/Install_PHP_${ver_tmp}.sh"
 	
 	import "${IN_PWD}/lib/Install_PHP_${ver_tmp}.sh"
 		
