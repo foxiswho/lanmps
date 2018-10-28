@@ -160,7 +160,7 @@ EOF
 cd $IN_DOWN
 tar -zxvf SeasLog-1.8.6.tgz
 cd SeasLog-1.8.6
-./configure --with-php-config=$PHP_PATH/bin/php-config
+./configure --with-php-config=${PHP_PATH}/bin/php-config
 make && make install
 
 echo '
@@ -186,7 +186,7 @@ seaslog.default_datetime_format = "%Y:%m:%d %H:%M:%S"
 cd $IN_DOWN
 tar -zxvf swoole-4.2.5.tgz
 cd swoole-4.2.5
-$PHP_PATH/bin/phpize
+${PHP_PATH}/bin/phpize
 ./configure
 make install
 

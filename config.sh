@@ -157,8 +157,8 @@ DUS['mcrypt']="http://download.lanmps.com/basic/mcrypt-2.6.8.tar.gz"
 VERS['mcrypt']="2.6.8"
 #https://xdebug.org/
 #https://xdebug.org/files/xdebug-2.5.5.tgz
-DUS['php-xdebug']="http://xdebug.org/files/xdebug-2.5.5.tgz"
-VERS['php-xdebug']="2.5.5"
+DUS['php-xdebug']="http://xdebug.org/files/xdebug-2.6.1.tgz"
+VERS['php-xdebug']="2.6.1"
 
 #http://mirrors.hust.edu.cn/apache/httpd/httpd-2.4.23.tar.gz
 DUS['apache']="http://download.lanmps.com/Apache/httpd-2.4.23.tar.gz"
