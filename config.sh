@@ -47,8 +47,8 @@ declare -A VERS;
 declare -A DUS;
 # soft url and down
 #http://nginx.org/download/nginx-1.8.0.tar.gz
-DUS['nginx']="http://download.lanmps.com/nginx/nginx-1.12.2.tar.gz"
-VERS['nginx']="1.12.2"
+DUS['nginx']="http://download.lanmps.com/nginx/nginx-1.14.0.tar.gz"
+VERS['nginx']="1.14.0"
 #http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.29.tar.gz
 DUS['mysql']="http://download.lanmps.com/mysql/mysql-5.6.35.tar.gz"
 VERS['mysql']="5.6.35"
@@ -69,16 +69,16 @@ VERS['mysql5.7.x']="5.7.20"
 DUS['mariadb10.2.x']="http://download.lanmps.com/mysql/mariadb-10.2.11.tar.gz"
 VERS['mariadb10.2.x']="10.2.11"
 
-DUS['mariadb10.3.x']="http://download.lanmps.com/mysql/mariadb-10.3.9.tar.gz"
-VERS['mariadb10.3.x']="10.3.9"
+DUS['mariadb10.3.x']="http://download.lanmps.com/mysql/mariadb-10.3.10.tar.gz"
+VERS['mariadb10.3.x']="10.3.10"
 
 #https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
 #DUS['mariadb10.1.x']="http://download.lanmps.com/mysql/mariadb-10.1.25.tar.gz"
 #VERS['mariadb10.1.x']="10.1.25"
 
 #http://cn2.php.net/distributions/php-7.1.9.tar.gz
-DUS['php7.2.x']="http://download.lanmps.com/php/php-7.2.8.tar.gz"
-VERS['php7.2.x']="7.2.8"
+DUS['php7.2.x']="http://download.lanmps.com/php/php-7.2.11.tar.gz"
+VERS['php7.2.x']="7.2.11"
 
 #http://cn2.php.net/distributions/php-7.1.9.tar.gz
 DUS['php7.1.x']="http://download.lanmps.com/php/php-7.1.20.tar.gz"
@@ -105,8 +105,8 @@ VERS['php5.5.x']="5.5.38"
 #VERS['php5.3.x']="5.3.29"
 #https://www.phpmyadmin.net/
 #https://files.phpmyadmin.net/phpMyAdmin/4.7.4/phpMyAdmin-4.7.4-all-languages.tar.gz
-DUS['phpMyAdmin']="https://files.phpmyadmin.net/phpMyAdmin/4.8.2/phpMyAdmin-4.8.2-all-languages.tar.gz"
-VERS['phpMyAdmin']="4.8.2"
+DUS['phpMyAdmin']="https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-all-languages.tar.gz"
+VERS['phpMyAdmin']="4.8.3"
 #http://www.pcre.org/
 #https://ftp.pcre.org/pub/pcre/
 DUS['libpcre']="http://download.lanmps.com/basic/pcre-8.39.tar.gz"
@@ -124,8 +124,8 @@ DUS['libevent']="http://download.lanmps.com/basic/libevent-2.1.8-stable.tar.gz"
 VERS['libevent']="2.1.8"
 #https://redis.io/
 #http://download.redis.io/releases/redis-4.0.1.tar.gz
-DUS['redis']="http://download.lanmps.com/redis/redis-4.0.11.tar.gz"
-VERS['redis']="4.0.11"
+DUS['redis']="http://download.redis.io/releases/redis-5.0.0.tar.gz"
+VERS['redis']="5.0.0"
 #http://pecl.php.net/package/redis
 #http://pecl.php.net/get/redis-3.1.0.tgz
 DUS['php-redis']="http://download.lanmps.com/php_ext/redis-4.1.1.tgz"
