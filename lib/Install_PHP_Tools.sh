@@ -4,6 +4,7 @@ function Install_PHP_Tools()
     PHP_PATH=$1
     echo "PHP_PATH = ${PHP_PATH}"
 	local php_ini=$PHP_PATH/php.ini
+	local php_path=$PHP_PATH
 	echo "================================="
     echo "================================="
     echo "================================="
@@ -157,10 +158,11 @@ EOF
         echo "===============  SeasLog   ===================="
         #http://pecl.php.net/package/SeasLog
 #wget http://pecl.php.net/get/SeasLog-1.8.6.tgz
+        echo "./configure --with-php-config=$php_path/bin/php-config"
 cd $IN_DOWN
 tar -zxvf SeasLog-1.8.6.tgz
 cd SeasLog-1.8.6
-./configure --with-php-config=${PHP_PATH}/bin/php-config
+./configure --with-php-config=$php_path/bin/php-config
 make && make install
 
 echo '
@@ -182,11 +184,12 @@ seaslog.default_datetime_format = "%Y:%m:%d %H:%M:%S"
 '  >> $php_ini
 
         echo "==============  swoole      =============="
+        echo "$php_path/bin/phpize"
 #https://pecl.php.net/get/swoole-4.2.5.tgz
 cd $IN_DOWN
 tar -zxvf swoole-4.2.5.tgz
 cd swoole-4.2.5
-${PHP_PATH}/bin/phpize
+$php_path/bin/phpize
 ./configure
 make install
 
