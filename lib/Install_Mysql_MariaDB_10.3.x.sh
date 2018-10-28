@@ -35,7 +35,11 @@
 	#cp $IN_PWD/conf/conf.mariadb.conf $cnf
 	#cp $MYSQL_PATH/my-new.cnf $cnf
 	#cp support-files/my-innodb-heavy-4G.cnf $cnf
-	cp support-files/my-huge.cnf $cnf
+	if [ ! -f support-files/wsrep.cnf ];then
+	    cp support-files/wsrep.cnf $cnf
+	elif
+	    cp support-files/my-huge.cnf $cnf
+	fi
 	if [ ! $IN_DIR = "/www/lanmps" ]; then
 		sed -i "s:/www/lanmps:$IN_DIR:g" $cnf
 	fi
