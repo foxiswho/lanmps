@@ -147,7 +147,7 @@ echo "Select mysql :
     1 MySql  ${VERS['mysql5.6.x']}
     0 don't install is now
     "
-echo -n "Please Input 1,2: "
+echo -n "Please Input 1-3: "
 read MYSQL_SELECT
 MYSQL_INITD="mysql"
 if [ $MYSQL_SELECT == "1" ]; then

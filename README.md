@@ -10,7 +10,7 @@ Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )环境套件�
 * 内存：大于等于2048M内存 (目前没有针对小内存优化)
 * 安装时需要联网
 
-LANMPS 一键安装包V3.2.2 ：Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
+LANMPS 一键安装包V3.4.0 ：Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
 > 
 已在 CentOS7.x，Ubuntu17.x 中安装成功！
 
@@ -28,10 +28,10 @@ coreseek(Sphinx中文版) 不支持 Ubuntu 12.x,13.x,14.x `已废弃`
 百度网盘下载(速度快)：[http://pan.baidu.com/s/1bnjIYKJ](http://pan.baidu.com/s/1bnjIYKJ)
 
 ### 方法二：
-下载地址：http://download.lanmps.com/lanmps/lanmps-3.2.2.tar.gz (七牛免费资源,每月10G流量)
+下载地址：http://download.lanmps.com/lanmps/lanmps-3.4.0.tar.gz (七牛免费资源,每月10G流量)
 
 然后上传文件到服务器上，在当前目录下执行：
-`tar -zxvf lanmps-3.2.2.tar.gz && cd lanmps-3.2.2 && ./lanmps.sh`
+`tar -zxvf lanmps-3.4.0.tar.gz && cd lanmps-3.4.0 && ./lanmps.sh`
 
 >数据库默认密码为`root`
 >mysql5.7.x版密码为空
@@ -93,6 +93,13 @@ nginx 自动分割日志
 凌晨 0点0分00秒 开始执行
 
 ### 更新日志
+* 2018年10月28日 LANMPS V3.4.0 发布
+
+ * 升级 PHP 7.2.x
+ * 升级 MariaDB 10.3.x
+ * 升级 REDIS 5.X
+ * 升级 NGINX 1.14.x
+
 * 2017年03月07日 LANMPS V3.2.2 发布
 
  * 升级PHP7.1.x
@@ -101,7 +108,6 @@ nginx 自动分割日志
  * 升级NGINX1.11.x
  * BUG修复
  
-### 更新日志
 * 2016年12月15日 LANMPS V3.2.0 发布
 
  * 升级PHP7.1
