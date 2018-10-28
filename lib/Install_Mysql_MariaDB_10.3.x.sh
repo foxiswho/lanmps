@@ -96,7 +96,7 @@ EOF
 	$MYSQL_BIN_PATH restart
 	$MYSQL_BIN_PATH stop
 
-sed -i "s#bin/mysql#bin/mariadb#g" $IN_DIR/lanmps
+#sed -i "s#bin/mysql#bin/mariadb#g" $IN_DIR/lanmps
 
 ln -s $MYSQL_PATH/bin/mysql /usr/bin/mariadb
 ln -s $MYSQL_PATH/bin/mysqldump /usr/bin/mariadbdump
