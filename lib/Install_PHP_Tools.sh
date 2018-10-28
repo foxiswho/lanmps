@@ -155,6 +155,13 @@ EOF
         #$PHP_PATH/bin/php go-pear.php
 
         echo "===============  SeasLog   ===================="
+        #http://pecl.php.net/package/SeasLog
+#wget http://pecl.php.net/get/SeasLog-1.8.6.tgz
+cd $IN_DOWN
+tar -zxvf SeasLog-1.8.6.tgz
+cd SeasLog-1.8.6
+./configure --with-php-config=$PHP_PATH/bin/php-config
+make && make install
 
 echo '
 
@@ -174,7 +181,7 @@ seaslog.default_datetime_format = "%Y:%m:%d %H:%M:%S"
 
 '  >> $php_ini
 
-        #http://pecl.php.net/package/SeasLog
+
 
         echo "==================================="
         echo "==================================="
