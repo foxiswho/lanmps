@@ -181,6 +181,23 @@ seaslog.default_datetime_format = "%Y:%m:%d %H:%M:%S"
 
 '  >> $php_ini
 
+        echo "==============  swoole      =============="
+#https://pecl.php.net/get/swoole-4.2.5.tgz
+cd $IN_DOWN
+tar -zxvf swoole-4.2.5.tgz
+cd swoole-4.2.5
+$PHP_PATH/bin/phpize
+./configure
+make install
+
+
+echo '
+
+[swoole]
+;extension =swoole.so
+
+
+'  >> $php_ini
 
 
         echo "==================================="
