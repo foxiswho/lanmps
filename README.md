@@ -13,7 +13,7 @@ Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )环境套件�
 * 内存：大于等于2048M内存  (目前没有针对小内存优化)
 * 安装时需要联网
 
-LANMPS 一键安装包V3.3.0 ：Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
+LANMPS 一键安装包V3.4.0 ：Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
 > 
 > 已在 CentOS7.x，Ubuntu17.x 中安装成功！
 > 
@@ -69,7 +69,7 @@ yum install -y screen && screen -S lanmps
 apt-get install -y screen && screen -S lanmps
 ```
 ## 2.执行安装命令
->3.3.0 为版本号
+>3.4.0 为版本号
 >
 >根据最新版本的版本号，更改下面相应的代码版本号
 >
@@ -78,10 +78,12 @@ apt-get install -y screen && screen -S lanmps
 >如果你需要的套件是最新版本请修改相应的配置，并把相应的文件下载至down目录即可
 >
 >`mysql5.7版本 数据库默认密码为空`
+>
+>`mariadb` 数据库密码默认为:`root`
 
 在安装包的当前目录下执行：
 
-`tar -zxvf lanmps-3.3.0.tar.gz && cd lanmps-3.3.0 && ./lanmps.sh`
+`tar -zxvf lanmps-3.4.0.tar.gz && cd lanmps-3.4.0 && ./lanmps.sh`
 
 ## 2.2 执行上述命令后，会出现以下提示：选择安装套件类别（默认选1）
 
@@ -140,6 +142,19 @@ Ubuntu 16.x:
 # 关于 LANMPS 
 [关于 LANMPS ](/lanmps-about.html)
 ### 更新日志
+
+* 2018年10月28日 LANMPS V3.4.0 发布
+
+ * 升级 PHP 7.2.x
+
+ * 升级 MariaDB 10.3.x
+
+ * 升级 REDIS 5.X
+
+ * 升级 NGINX 1.14.x
+ 
+ * 增加 swoole,seaslog 扩展
+
 * 2017年03月07日 LANMPS V3.2.2 发布
 
  * 升级PHP7.1.x
