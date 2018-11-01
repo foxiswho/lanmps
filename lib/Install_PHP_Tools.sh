@@ -162,6 +162,9 @@ EOF
 cd $IN_DOWN
 tar -zxvf SeasLog-1.8.6.tgz
 cd SeasLog-1.8.6
+
+$php_path/bin/phpize
+
 ./configure --with-php-config=$php_path/bin/php-config
 make && make install
 
