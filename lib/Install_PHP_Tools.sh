@@ -169,7 +169,7 @@ echo '
 
 [seaslog]
 ; configuration for php SeasLog module
-extension =seaslog.so
+;extension =seaslog.so
 seaslog.default_basepath = /www/wwwLog/    ;默认log根目录
 seaslog.default_logger = default                ;默认logger目录
 seaslog.disting_type = 1                            ;是否以type分文件 1是 0否(默认)

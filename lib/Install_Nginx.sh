@@ -59,7 +59,7 @@ function Install_Nginx {
 	#关闭 nginx 版本显示
 	local FASTCGI_FILE=$IN_DIR/nginx/conf/fastcgi.conf
     sed -i "s#nginx/\$nginx_version#nginx#g" $FASTCGI_FILE
-    echo "try_files \$fastcgi_script_name =404;" >> $FASTCGI_FILE
+    #echo "try_files \$fastcgi_script_name =404;" >> $FASTCGI_FILE
     # upstream 设置单独文件
 	file_cp conf.upstream.conf $IN_DIR/nginx/conf/upstream.conf
 	
