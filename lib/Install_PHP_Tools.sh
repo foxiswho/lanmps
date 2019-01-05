@@ -103,7 +103,7 @@ function Install_PHP_Tools()
 	    php_ext_date="no-debug-non-zts-${php_ext_date}"
 	fi
 	echo "${php_ext_date}"
-    local PHP_EXT2 =${PHP_EXT}'\n;extension = "ssh2.so"'
+        local PHP_EXT2=${PHP_EXT}'\n;extension = "ssh2.so"'
 	EXTENSION_DIR=${PHP_PATH}/lib/php/extensions/${php_ext_date}
 	sed -i "s#extension_dir = \"./\"#extension_dir=${EXTENSION_DIR}${PHP_EXT2}#" $php_ini
 	echo 's#extension_dir = "./"#extension_dir = '${EXTENSION_DIR}${PHP_EXT2}'#'
