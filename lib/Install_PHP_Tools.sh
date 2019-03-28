@@ -179,10 +179,10 @@ seaslog.disting_type = 1                            ;是否以type分文件 1是
 seaslog.disting_by_hour = 0                      ;是否每小时划分一个文件 1是 0否(默认)
 seaslog.use_buffer = 1                              ;是否启用buffer 1是 0否(默认)
 seaslog.buffer_size = 100                         ;buffer中缓冲数量 默认0(不使用buffer_size)
-seaslog.level = 0                                       ;记录日志级别 默认0(所有日志)
+seaslog.level = 8                                       ;记录日志级别 默认8(所有日志)
 seaslog.trace_error = 1
 seaslog.trace_exception = 0
-seaslog.default_datetime_format = "%Y:%m:%d %H:%M:%S"
+seaslog.default_datetime_format = "Y-m-d H:i:s"
 
 '  >> $php_ini
 
