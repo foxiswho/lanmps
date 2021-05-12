@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用 lanmps 环境套件安装设置新站点 案例
-permalink: /set_site_lanmps.html
+permalink: /2017/set_site_lanmps.html
 ---
 
 假设：

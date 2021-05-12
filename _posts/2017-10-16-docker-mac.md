@@ -1,7 +1,7 @@
 ---
 layout: post
 title: docker 方式配置 开发环境 MAC系统
-permalink: /docker-mac.html
+permalink: /2017/docker-mac.html
 ---
 docker 方式配置 开发环境 MAC系统(目前只针对MAC系统)
 ------------------------------------
