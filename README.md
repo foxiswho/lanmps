@@ -4,19 +4,20 @@ LANMPS 一键安装包,php绿色环境套件包
 
 LANMPS 一键安装包是一个开源Linux Shell编写的可以为CentOS/Ubuntu Linux服务器或独立主机安装LANMP(Nginx/Apache/MySQL/PHP/Elasticsearch)、LNMA(Nginx/MySQL/PHP)、生产环境的Shell安装套件包程序。
 
+
 Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )环境套件包,绿色PHP套件，一键自动安装
 
 系统需求
 -------------------------------------
 
 * 系统：Linux下CentOS,RedHat,Ubuntu
-* 内存：大于等于2048M内存  (目前没有针对小内存优化)
+* 内存：大于等于512M内存
 * 安装时需要联网
 
 LANMPS 一键安装包V3.4.2 ：Linux+Nginx+Mysql+PHP+Elasticsearch ( phpmyadmin+opencache+xdebug )套件包,绿色PHP套件，一键自动安装。
-> 
+>
 > 已在 CentOS7.x，Ubuntu17.x 中安装成功！
-> 
+>
 > Apache 在下个版本中会实现
 
 
@@ -29,118 +30,91 @@ Xshell+Xftp (Windows 下推荐)
 或者使用其他工具
 
 使用`SSH Secure Shell Client`登陆服务器
-# Lanmps 下载
-
-安装包大小：340MB（包含相关环境所需文件）
-
-### 方法二：
-百度网盘下载(速度快)：[http://pan.baidu.com/s/1bnjIYKJ](http://pan.baidu.com/s/1bnjIYKJ)
-
-然后上传文件到服务器上
-
-# 安装
-请以  `root`  用户执行命令
-
-请以  `root`  用户执行命令
-
-请以  `root`  用户执行命令
-
-`重要的事情说3遍`
-## 1.screen 安装启动
->screen 介绍
->screen 为了防止SSH登陆超时或掉线，中断安装（lanmps 为自定义名称）。
->如果掉线了，执行 
-`screen -r lanmps`,即可恢复 掉线前的执行界面，如果忘记名字了，执行 `screen -ls` 会列出所有会话列表，其中`数字.lanmps`即为刚才的会话
->
->如果提示screen: command not found 命令不存在。
->
->CentOS 可以执行：`yum install -y screen`
->
->Ubuntu可以执行：`apt-get install -y screen`
-
->查看是什么系统的命令：`cat /etc/issue`
-
-### CentOS 系统
-```SHELL
-yum install -y screen && screen -S lanmps
+# Lanmps 所需环境 安装 1
+## Ubuntu 20.x
+```bash
+sudo apt update -y
+sudo apt install git -y
 ```
-### Ubuntu 系统
-```SHELL
-apt-get install -y screen && screen -S lanmps
+## centos 7.x
+```bash
+sudo yum update -y
+sudo yum install git -y
 ```
-## 2.执行安装命令
->3.4.2 为版本号
->
->根据最新版本的版本号，更改下面相应的代码版本号
->
->`此版本改动较大`，有时php-fpm没有启动，请手动启动  /www/lanmps/php-fpm(`版本`) `start`
->
->如果你需要的套件是最新版本请修改相应的配置，并把相应的文件下载至down目录即可
->
->`mysql5.7版本 数据库默认密码为空`
->
->`mariadb` 数据库密码默认为:`root`
-
-在安装包的当前目录下执行：
-
-`tar -zxvf lanmps-3.4.2.tar.gz && cd lanmps-3.4.2 && ./lanmps.sh`
-
-## 2.2 执行上述命令后，会出现以下提示：选择安装套件类别（默认选1）
-
-![](/doc/images/lanmps-01.png)
-
-## 2.3 选择php版本（默认选则4）
-
-![](/doc/images/lanmps-02.png)
-
-## 2.4 选择Mysql版本（默认选则3）
-
-![](/doc/images/lanmps-03.png)
-
-## 2.5 提示”Press any key to start…”，按任意键开始安装
-
-![](/doc/images/lanmps-04.png)
-
-## 2.6 程序安装
-到了这里，
-LANMPS脚本就会自动编译安装Nginx、MySQL、PHP、phpMyAdmin、Opencache、Memcache、Xdebug,Elasticsearch,Redis 等软件。
-
-其中Xdebug默认关闭，如需使用在php.ini开启。
-
-安装时间可能会几十分钟到几个小时不等，主要是机器的配置网速等原因会造成影响。
-
-## 2.7 安装完成
-出现以下界面，则说明安装成功！
-
-![](/doc/images/lanmps-05.png)
-
-如果重新启动服务器后无法访问站点,记得`关闭防火墙`或`开启防火墙端口`
-
-Centos 7:
->关闭防火墙： `sudo systemctl stop firewalld.service`
->关闭开机启动：`sudo systemctl disable firewalld.service`
-
-Centos 7 执行 下面两条命令   一个是 增加 防火墙端口，一个是重启防火墙
-```SHELL
-firewall-cmd --zone=public --add-port=80/tcp --permanent
-systemctl restart firewalld.service
+# Lanmps 所需环境 安装 2
+国外用户请用
+```bash
+curl -sfL https://get.k3s.io | sh -
 ```
+国内用户请用
+```bash
+curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -
+```
+等待安装完成
 
-Ubuntu 16.x:
->
+查看安装是否安装成功,执行如下命令
+```bash
+k3s kubectl get nodes
+```
+输出如下信息表明安装成功
+```bash
+NAME      STATUS   ROLES                  AGE     VERSION
+seastar   Ready    control-plane,master   2d11h   v1.20.6+k3s1
+```
+# Lanmps k8s 套件安装
 
-# 安装设置新站点 案例
-[使用 lanmps 环境套件安装设置新站点 案例](/set_site_lanmps.html)
+```bash
+mkdir -p /www/k8s/ && cd /www/k8s/  && \
+git clone https://github.com/foxiswho/k8s-nginx-php-redis-mysql-elk.git knprmelk  --depth=1 && \
+cd knprmelk  && \
+chmod +x *sh && \
+./all.start.sh
+```
+## 配置代理工具 traefik
+创建文件 `ingress.yaml`
+内容如下
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-seastargou
+  labels:
+    app: ingress-seastargou
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx
+                port:
+                  number: 80
+    - host: foxwho.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx
+                port:
+                  number: 80
+```
+执行命令
+```bash
+kubectl apply -f ingress.yaml
+```
+# 访问
+```bash
+http://localhost/p.php
+```
+即可看见 php 环境信息
 
-[配置相关说明](/lanmps-conf.html)
-
-
-# LANMPS 状态管理命令
-[LANMPS 状态管理命令](/lanmps-status.html)
-# LANMPS 目录说明
-[LANMPS 目录说明](/lanmps-file-list.html)
-# 关于 LANMPS 
-[关于 LANMPS ](/lanmps-about.html)
 ### 更新日志
 
 * 2019年01月05日 LANMPS V3.4.2 发布
