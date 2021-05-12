@@ -47,6 +47,19 @@ $color-2: #a044ff;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-    
+
         "bootstrap"
     ;
+
+.meny {
+  width: 230px;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 1;
+  transform-origin: 100% 50%;
+  transition: all 0.5s ease 0s;
+  background-color: #222;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=);
+  top: 139px;
+}
